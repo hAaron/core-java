@@ -6,7 +6,7 @@ import java.util.Random;
 
 import org.apache.hadoop.util.StringUtils;
 
-public class test {
+public class TestMain {
 	
 	public static void main(String[] args) {
 		int[] a = new int[10000];
