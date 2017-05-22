@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="lib/mysql/mysql-connector-java-5.1.35.jar"/>
+	<classpathentry kind="lib" path="lib/hbase/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/hbase/hadoop-core-0.20.2-cdh3u2.jar"/>
+	<classpathentry kind="lib" path="lib/hbase/hbase-0.90.4-cdh3u2.jar"/>
+	<classpathentry kind="lib" path="lib/hbase/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="lib/hbase/zookeeper-3.3.3-cdh3u2.jar"/>
+	<classpathentry kind="lib" path="lib/excel/jaxen-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/excel/poi-3.7.jar"/>
+	<classpathentry kind="lib" path="lib/excel/poi-ooxml-3.7.jar"/>
+	<classpathentry kind="lib" path="lib/email/mail-1.5.0-b01.jar"/>
+	<classpathentry kind="lib" path="lib/pdf/pdfbox-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/xml/dom4j-1.6.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
