@@ -15,5 +15,8 @@
 	<classpathentry kind="lib" path="lib/email/mail-1.5.0-b01.jar"/>
 	<classpathentry kind="lib" path="lib/pdf/pdfbox-1.7.1.jar"/>
 	<classpathentry kind="lib" path="lib/xml/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/redis/commons-pool-1.5.4.jar"/>
+	<classpathentry kind="lib" path="lib/redis/jedis-2.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/junit/junit-4.12.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

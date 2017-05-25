@@ -1,15 +1,15 @@
 package com.aaron.test;
 
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.BitSet;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Random;
 import java.util.Set;
 import java.util.Stack;
 
-import org.apache.hadoop.util.StringUtils;
 
 public class TestMain {
 	
@@ -33,6 +33,32 @@ public class TestMain {
 		Set<String> set = new HashSet<>();
 		set.add("333");
 		System.out.println(set.contains("3333"));
-	}
+		
+		PriorityQueue<Integer> queue = new PriorityQueue<Integer>();
+		queue.offer(11);
+		
+		Set<String> sets = new HashSet<String>();
+		sets.add("2");
+		sets.add("4");
+		sets.add("1");
+		sets.add("3");
+		sets.add("0");
+		for (String string : sets) {
+			System.out.print(string+"=");
+		}
+		System.out.println("###################");
+		Queue<String> queue2 = new LinkedList<String>();
+		queue2.add("2");
+		queue2.add("4");
+		queue2.add("1");
+		queue2.add("3");
+		queue2.add("0");
+		for (String string : queue2) {
+			System.out.print(string+"=");
+			System.out.println(string.hashCode());
+		}
+		
+		
+ 	}
 
 }
