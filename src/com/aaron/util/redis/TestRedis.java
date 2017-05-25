@@ -24,12 +24,12 @@ public class TestRedis {
 
 	@Before
 	public void initRedis() {
-		jedis = RedisUtil.getJedis();
+		jedis = RedisConfig.getJedis();
 	}
 
 	@After
 	public void clearRedis() {
-		RedisUtil.returnResource(jedis);
+		RedisConfig.returnResource(jedis);
 	}
 
 	// redis操作字符串

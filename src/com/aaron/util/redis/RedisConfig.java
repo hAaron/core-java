@@ -11,7 +11,7 @@ import redis.clients.jedis.JedisPoolConfig;
  * @version 1.0
  * @package_name com.aaron.util.redis
  */
-public class RedisUtil {
+public class RedisConfig {
 
 	// private static String host="10.221.235.17"; // redis所在IP地址
 	// private static int port=6379; // 端口号
@@ -80,8 +80,8 @@ public class RedisUtil {
 	}
 
 	public static void main(String[] args) {
-		Jedis jedis = RedisUtil.getJedis();
+		Jedis jedis = RedisConfig.getJedis();
 		System.out.println(jedis);
-		RedisUtil.returnResource(jedis);
+		RedisConfig.returnResource(jedis);
 	}
 }
