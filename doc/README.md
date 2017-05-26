@@ -4,3 +4,4 @@
 4. 测试包 com.aaron.test
 
 
+字符集编码统一 UTF-8
