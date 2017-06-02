@@ -1,14 +1,15 @@
 package com.aaron.design.singleton;
 
 /**
- * 测试类
+ * 单例模式 </br> 所谓单例就是所有的请求都用一个对象来处理，比如我们常用的service和dao层的对象通常都是单例的，</br>
+ * 而多例则指每个请求用一个新的对象来处理，比如action;
  * 
  * @author Aaron
  * @date 2017年6月1日
  * @version 1.0
  * @package_name com.aaron.design.singleton
  */
-public class TestMain {
+public class TestSingleton {
 
 	public static void main(String[] args) {
 		// 饿汉式
