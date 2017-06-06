@@ -19,10 +19,14 @@ import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.util.Bytes;
 
 /**
- * Hbase 整合 Java 增删查改 --Hbase的优点： 1.列的可以动态增加，并且列为空就不存储数据,节省存储空间</br>
- * 2.Hbase自动切分数据，使得数据存储自动具有水平scalability</br> 3.Hbase可以提供高并发读写操作的支持</br>
- * --Hbase的缺点： 1. 不能支持条件查询，只支持按照Row key来查询 </br> 2. 暂时不能支持Master
- * server的故障切换,当Master宕机后,整个存储系统就会挂掉.</br>
+ * Hbase 整合 Java 增删查改 --
+ * Hbase的优点：  </br> 
+ * 1.列的可以动态增加，并且列为空就不存储数据,节省存储空间</br>
+ * 2.Hbase自动切分数据，使得数据存储自动具有水平scalability</br> 
+ * 3.Hbase可以提供高并发读写操作的支持</br>
+ * --Hbase的缺点：</br>
+ * 1. 不能支持条件查询，只支持按照Row key来查询 </br> 
+ * 2. 暂时不能支持Master server的故障切换,当Master宕机后,整个存储系统就会挂掉.</br>
  * 
  * @author Aaron
  * @date 2017年5月22日

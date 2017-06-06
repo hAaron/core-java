@@ -47,7 +47,7 @@ public class JdbcUtil {
 						+ resultSet.getBlob(4));
 				list.add(resultSet);
 			}
-			conn.commit();
+			//conn.commit();
 			return list;
 		} catch (Exception e) {
 			e.printStackTrace();
