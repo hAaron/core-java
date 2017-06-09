@@ -1,8 +1,5 @@
 package com.aaron.design.prototype;
 
-/*
- *  As  a Test Client to test our pattern  
- */
 import java.util.Hashtable;
 
 /**
