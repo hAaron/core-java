@@ -1,7 +1,8 @@
 package com.aaron.Thread.example.soldticket;
 
 /**
- * 售票员卖票问题 　synchronized原理是，执行synchronized部分代码的时候必须需要对象锁，而一个对象只有一个锁，
+ * 售票员卖票问题 　
+ * synchronized原理是，执行synchronized部分代码的时候必须需要对象锁，而一个对象只有一个锁，
  * 只有执行完synchronized里面的代码后释放锁
  * ，其他线程才可以获得锁，那么就保证了同一时刻只有一个线程访问synchronized里面的代码。使得资源共享的关键是
  * ，只有一个实例，synchronized使用的是同一把锁
