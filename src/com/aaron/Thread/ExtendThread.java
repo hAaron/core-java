@@ -1,6 +1,7 @@
 package com.aaron.Thread;
 
 /**
+ * 创建线程方式1：继承Thread 类
  * 
  * @author Aaron
  * @date 2017年5月22日
