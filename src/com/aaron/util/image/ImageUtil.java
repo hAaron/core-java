@@ -126,9 +126,9 @@ public class ImageUtil {
 		File img = new File("e:\\temp\\yasuo1.jpg");
 		System.out.println(img.length());
 		FileOutputStream fos = new FileOutputStream("e:\\temp\\yasuo2.jpg");
-		// ImgTools.thumbnail(img, 100, 100, fos);
-		// ImgTools.cut_w_h(img, 230, 200, fos);
-		ImageUtil.thumbnail_w_h(img, 170, 107, fos);
+		ImageUtil.thumbnail(img, 170, 107, fos);
+		// ImageUtil.cut_w_h(img, 230, 200, fos);
+		//ImageUtil.thumbnail_w_h(img, 170, 107, fos);
 		//img.delete();
 		img = new File("e:\\temp\\yasuo2.jpg");
 		System.out.println(img.length());
