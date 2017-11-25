@@ -180,7 +180,8 @@ public class ImageUtil {
 
 	/**
 	 * 循环文件夹下的文件
-	 * 
+	 * @param path
+	 * @throws Exception
 	 */
 	private static void getFile(String path) throws Exception {
 		File file = new File(path);
