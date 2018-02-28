@@ -19,5 +19,6 @@
 	<classpathentry kind="lib" path="lib/redis/jedis-2.1.0.jar"/>
 	<classpathentry kind="lib" path="lib/junit/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="lib/ftp/commons-net-1.4.1.jar"/>
+	<classpathentry kind="lib" path="lib/memcached/spymemcached-2.10.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
