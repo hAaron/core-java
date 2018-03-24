@@ -6,6 +6,8 @@ import java.lang.reflect.Proxy;
 import java.util.Arrays;
 
 /**
+ * 方法一
+ * 
  * 动态代理类 动态代理模式，核心主要是反射；主要使用到了：
  * 1、java.lang.reflect.InvocationHandler：InvocationHandler接口用来约束调用者实现；
  * 2、java.lang.reflect.Proxy：Proxy类主要用来获取动态代理对象，主要是重写的invoke方法；
