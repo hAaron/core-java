@@ -1,7 +1,7 @@
 package com.aaron.design.proxy.staticp;
 
 /**
- * 代理对象购买车票，代理类
+ * 代理对象购买车票，代理类(持有对象的引用)
  * 
  * @author Aaron
  * @date 2017年6月5日

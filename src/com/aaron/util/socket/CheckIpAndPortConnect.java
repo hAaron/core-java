@@ -16,8 +16,17 @@ public class CheckIpAndPortConnect {
 
 	public static void main(String[] args) {
 		String host = "192.168.128.129";
-		int port = 9200;
+		int port = 9100;
+		String host1 = "192.168.128.129";
+		int port1 = 9200;
+		String host2 = "192.168.128.129";
+		int port2 = 9300;
+		String host3 = "192.168.128.129";
+		int port3 = 9400;
 		System.out.println(isHostConnectable(host, port));
+		System.out.println(isHostConnectable(host1, port1));
+		System.out.println(isHostConnectable(host2, port2));
+		System.out.println(isHostConnectable(host3, port3));
 	}
 
 	/**
