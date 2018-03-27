@@ -116,21 +116,206 @@ public class DateUtil {
 	}
 
 	/**
+	 * 计算2个日期之间间隔天数方法
+	 * 
+	 * @param d1
+	 *            The first Calendar. 格式yyyy-MM-dd
+	 * @param d2
+	 *            The second Calendar.
+	 *
+	 * @return 天数
+	 */
+	public static long getDaysBetween(String d1, String d2) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			Date dt1 = sdf.parse(d1);
+			Date dt2 = sdf.parse(d2);
+			return (dt1.getTime() - dt2.getTime()) / (3600 * 24 * 1000);
+		} catch (Exception e) {
+			return 0;
+		}
+
+	}
+
+	/**
+	 * 计算两个日期之间的时间间隔(d1-d2)，可选择是否计算工作日
+	 * 
+	 * @param d1
+	 * @param d2
+	 * @param onlyWorkDay
+	 *            是否只计算工作日
+	 * @return 计算两个日期之间的时间间隔(d1-d2)，可选择是否计算工作日
+	 */
+	public static long getDaysBetween(String d1, String d2, boolean onlyWorkDay) {
+		if (!onlyWorkDay) {
+			return getDaysBetween(d1, d2);
+		} else {
+			long days = 0;
+			Calendar calendar = Calendar.getInstance();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			try {
+				Date dt1 = sdf.parse(d1);
+				Date dt2 = sdf.parse(d2);
+				days = (dt1.getTime() - dt2.getTime()) / (3600 * 24 * 1000);
+				for (calendar.setTime(dt1); !calendar.getTime().before(dt2); calendar.add(Calendar.DAY_OF_YEAR, -1)) {
+					int week = calendar.get(Calendar.DAY_OF_WEEK);
+					if (week == Calendar.SUNDAY || week == Calendar.SATURDAY) {
+						days--;
+					}
+				}
+				if (days < 0) {
+					days = 0;
+				}
+			} catch (Exception e) {
+			}
+			return days;
+		}
+	}
+
+	/**
+	 * 判断日期是否为工作日(周六和周日为非工作日)
+	 * 
+	 * @param date
+	 * @return 判断日期是否为工作日(周六和周日为非工作日)
+	 */
+	public static boolean isWorkDay(Date date) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		int week = calendar.get(Calendar.DAY_OF_WEEK);
+		if (week == Calendar.SUNDAY || week == Calendar.SATURDAY) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	/**
+	 * 计算两个时间之间的间隔 单位：分钟(minutes) 格式 yyyy-MM-dd/HH:mm:ss
+	 */
+	public static long getMinutesBetween(String s1, String s2) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd/HH:mm:ss");
+		try {
+			Date dt1 = sdf.parse(s1);
+			Date dt2 = sdf.parse(s2);
+			return (dt1.getTime() - dt2.getTime()) / (60 * 1000);
+		} catch (Exception e) {
+			return 0;
+		}
+
+	}
+
+	/**
+	 * 功能描述：返回年份
+	 * 
+	 * @param date
+	 *            Date 日期
+	 * @return 返回年份
+	 */
+	public static int getYear(Date date) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		return calendar.get(Calendar.YEAR);
+	}
+
+	/**
+	 * 功能描述：返回月份
+	 * 
+	 * @param date
+	 *            Date 日期
+	 * @return 返回月份
+	 */
+	public static int getMonth(Date date) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		return calendar.get(Calendar.MONTH) + 1;
+	}
+
+	/**
+	 * 功能描述：返回日份
+	 * 
+	 * @param date
+	 *            Date 日期
+	 * @return 返回日份
+	 */
+	public static int getDay(Date date) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		return calendar.get(Calendar.DAY_OF_MONTH);
+	}
+
+	/**
+	 * 功能描述：返回小时
+	 * 
+	 * @param date
+	 *            日期
+	 * @return 返回小时
+	 */
+	public static int getHour(Date date) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		return calendar.get(Calendar.HOUR_OF_DAY);
+	}
+
+	/**
+	 * 功能描述：返回分钟
+	 * 
+	 * @param date
+	 *            日期
+	 * @return 返回分钟
+	 */
+	public static int getMinute(Date date) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		return calendar.get(Calendar.MINUTE);
+	}
+
+	/**
+	 * 返回秒钟
+	 * 
+	 * @param date
+	 *            Date 日期
+	 * @return 返回秒钟
+	 */
+	public static int getSecond(Date date) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		return calendar.get(Calendar.SECOND);
+	}
+
+	/**
+	 * 功能描述：返回毫秒
+	 * 
+	 * @param date
+	 *            日期
+	 * @return 返回毫秒
+	 */
+	public static long getMillis(Date date) {
+		Calendar calendar = calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		return calendar.getTimeInMillis();
+	}
+
+	
+	/**
 	 * 测试案例
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println(dataConvertString(new Date(), PATTERN_STRING));
-		System.out.println(dateConvertData(new Date()));
-		System.out.println(stringConvertDate("2015-03-04", PATTERN_STRING2));
-		System.out.println("getWeekOfDate--" + getWeekOfDate(new Date()));
+		// System.out.println(dataConvertString(new Date(), PATTERN_STRING));
+		// System.out.println(dateConvertData(new Date()));
+		// System.out.println(stringConvertDate("2015-03-04", PATTERN_STRING2));
+		// System.out.println("getWeekOfDate--" + getWeekOfDate(new Date()));
+		// System.out
+		// .println(new
+		// SimpleDateFormat("YYYY-MM-dd").format(Calendar.getInstance().getTime()).replaceAll("-",
+		// "")
+		// + "000000");
+		// System.out.println(new SimpleDateFormat("YYYY-MM-dd").format(new
+		// Date()).replaceAll("-", "") + "000000");
+		// System.out.println(getWeekOfDate(new Date()));
 
-		System.out.println(new SimpleDateFormat("YYYY-MM-dd").format(
-				Calendar.getInstance().getTime()).replaceAll("-", "")
-				+ "000000");
-		System.out.println(new SimpleDateFormat("YYYY-MM-dd")
-				.format(new Date()).replaceAll("-", "") + "000000");
-
+		System.out.println(isWorkDay(new Date()));
+		System.out.println(getDaysBetween("2018-03-31", "2018-03-27", true));
 	}
 }
