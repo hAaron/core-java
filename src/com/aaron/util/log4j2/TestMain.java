@@ -3,6 +3,8 @@ package com.aaron.util.log4j2;
 /**
  * 测试log4j2异步日志打印（需要导入log4j2 jar包 Jar.java）
  * 
+ * log4j2.xml 日志文件配置详细在笔记里
+ * 
  * @author Aaron
  * @date 2018年4月12日
  * @version 1.0
