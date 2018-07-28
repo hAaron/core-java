@@ -1,4 +1,4 @@
-package com.aaron.util.collections;
+package com.aaron.util.collections.map;
 
 import java.util.HashMap;
 import java.util.Iterator;
