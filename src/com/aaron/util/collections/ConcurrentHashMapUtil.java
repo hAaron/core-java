@@ -14,16 +14,15 @@ import java.util.concurrent.ConcurrentHashMap;
  * @package_type com.aaron.util.collections.ConcurrentHashMapUtil
  */
 public class ConcurrentHashMapUtil {
-	public static Map hashMap = new HashMap();
-	public static Map hashTable = new Hashtable();
-	public static Map concurrentHashMap = new ConcurrentHashMap();
+	public static Map<Integer, String> hashMap = new HashMap<Integer, String>();
+	public static Map<Integer, String> hashTable = new Hashtable<Integer, String>();
+	public static Map<Integer, String> concurrentHashMap = new ConcurrentHashMap<Integer, String>();
 
 	public static void main(String[] args) {
 		int s = 2000000;
 		int e = 4000000;
 		long start = System.currentTimeMillis();
 		// testHashMap(s, e); //线程不安全,多线程情况下出现错误结果（耗时/ms：31911）
-
 		// testHashtable(s, e); //线程安全，不过对比ConcurrentHashMap，耗时长（耗时/ms：35825）
 		testConcurrentHashMap(s, e);// 线程安全，锁分段技术（耗时/ms：31723）
 		long end = System.currentTimeMillis();
