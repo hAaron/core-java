@@ -1,6 +1,5 @@
 package com.aaron.Thread.pool;
 
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -28,7 +27,6 @@ class newScheduledThreadPoolThread extends Thread {
 
 public class TestNewScheduledThreadPool {
 	public static void main(String[] args) {
-		// 创建一个线程池，它可安排在给定延迟后运行命令或者定期地执行。
 		// 创建一个大小无限的线程池。此线程池支持定时以及周期性执行任务的需求。
 		ScheduledExecutorService pool = Executors.newScheduledThreadPool(2);
 		// 创建实现了Runnable接口对象，Thread对象当然也实现了Runnable接口
