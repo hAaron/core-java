@@ -13,7 +13,7 @@ import com.aaron.design.factory.common.ISender;
 public abstract class Test {
 
 	public static void main(String[] args) {
-		ISender smSender = SendFactory.produceEmail();
+		ISender smSender = SendFactory.produceSMS();
 		smSender.send();
 
 		ISender emailSender = SendFactory.produceEmail();

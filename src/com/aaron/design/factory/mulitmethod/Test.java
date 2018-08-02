@@ -15,7 +15,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		SendFactory myFactory = new SendFactory();
-		ISender smSender = myFactory.produceEmail();
+		ISender smSender = myFactory.produceSMS();
 		smSender.send();
 
 		ISender emailSender = myFactory.produceEmail();
