@@ -24,6 +24,8 @@ public class MyIocClient {
 		// 使用传入类对象的方式获取多例的User对象
 		User user2_2 = applicationContext.getBean("user2", User.class);
 		System.out.println("多例user2_2:" + user2_2);
+		
+		applicationContext.destroy();
 	}
 
 }

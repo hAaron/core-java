@@ -6,4 +6,9 @@ public interface ApplicationContext {
 
 	public Object getBean(String beanId);
 
+	/**
+	 * 销毁方法，用于释放资源
+	 */
+	public void destroy();
+
 }
