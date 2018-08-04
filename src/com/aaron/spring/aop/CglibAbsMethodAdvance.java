@@ -43,17 +43,25 @@ public abstract class CglibAbsMethodAdvance implements MethodInterceptor {
 	@Override
 	public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
 		Object result = null;
-		String proxyMethod = getProxyMethodName();
+		//正则表达式去除通配符*  使用\\*
+		String proxyMethod = getProxyMethodName().replaceAll("\\*", "");
 
-		if (proxyMethod != null && proxyMethod.equals(method.getName())) {
-			System.out.print(proxyMethod + "--------");
+		if (proxyMethod != null && method.getName().contains(proxyMethod)) {
 			doBefore();
 		}
 
-		// 执行拦截的方法
+		// 根据定义的切点，执行相应的拦截操作
+//		if (proxyMethod != null && proxyMethod.equals(method.getName())) {
+//			System.out.println("删除操作数据库行为被记录到本地：" + proxyMethod);
+//		}
+		if (proxyMethod != null && method.getName().contains(proxyMethod)) {
+			System.out.println("删除操作数据库行为被记录到本地：" + method.getName());
+		}
+
+		// 执行被代理对象自己的方法
 		result = proxy.invokeSuper(obj, args);
 
-		if (proxyMethod != null && proxyMethod.equals(method.getName())) {
+		if (proxyMethod != null && method.getName().contains(proxyMethod)) {
 			doAfter();
 		}
 		return result;
@@ -69,5 +77,10 @@ public abstract class CglibAbsMethodAdvance implements MethodInterceptor {
 
 	public void setProxyMethodName(String proxyMethodName) {
 		this.proxyMethodName = proxyMethodName;
+	}
+	
+	public static void main(String[] args) {
+		String de = "delete*";
+		System.out.println(de.replaceAll("\\*", ""));
 	}
 }

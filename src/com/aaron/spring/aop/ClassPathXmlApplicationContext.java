@@ -51,26 +51,29 @@ public class ClassPathXmlApplicationContext implements ApplicationContext {
 							// 找到切点
 							PointCut pointCut = (PointCut) method.getAnnotations()[0];
 							String pointCutStr = pointCut.value();
-							String[] pointCutArr = pointCutStr.split("_");
+							
+							String[] porintCuts = pointCutStr.split(",");
+							for (String string : porintCuts) {
+								String[] pointCutArr = string.split("_");
+								// 被代理的类名
+								String className = pointCutArr[0];
+								// 被代理的方法名
+								String methodName = pointCutArr[1];
 
-							// 被代理的类名
-							String className = pointCutArr[0];
-							// 被代理的方法名
-							String methodName = pointCutArr[1];
+								// 根据切点 创建被代理对象
+								Object targetObj = Class
+										.forName(className, false, Thread.currentThread().getContextClassLoader())
+										.newInstance();
+								// 根据切面类创建代理者
+								CglibAbsMethodAdvance proxyer = (CglibAbsMethodAdvance) clazz.newInstance();
+								// 设置代理的方法
+								proxyer.setProxyMethodName(methodName);
 
-							// 根据切点 创建被代理对象
-							Object targetObj = Class
-									.forName(className, false, Thread.currentThread().getContextClassLoader())
-									.newInstance();
-							// 根据切面类创建代理者
-							CglibAbsMethodAdvance proxyer = (CglibAbsMethodAdvance) clazz.newInstance();
-							// 设置代理的方法
-							proxyer.setProxyMethodName(methodName);
+								Object object = proxyer.getProxyInstance(targetObj);
 
-							Object object = proxyer.getProxyInstance(targetObj);
-
-							if (object != null) {
-								beanDefinationFactory.put(targetObj.getClass().getSimpleName().toLowerCase(), object);
+								if (object != null) {
+									beanDefinationFactory.put(targetObj.getClass().getSimpleName().toLowerCase(), object);
+								}
 							}
 						}
 					}

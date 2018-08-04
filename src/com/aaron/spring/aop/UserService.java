@@ -15,6 +15,11 @@ public class UserService {
 		System.out.println("delete user by userid from db " + userId);
 	}
 
+	public void deleteAll() {
+		// delete db
+		System.out.println("delete all user by userid from db ");
+	}
+
 	public Object findUserById(String userId) {
 		Object object = null;// find user from db
 		System.out.println("find user by userid from db " + userId);

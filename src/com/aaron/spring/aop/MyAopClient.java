@@ -1,5 +1,7 @@
 package com.aaron.spring.aop;
 
+import java.util.Arrays;
+
 /**
  * 手动实现cglib 版本 spring aop
  * 
@@ -23,13 +25,16 @@ public class MyAopClient {
 		// 模拟容器初始化
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext();
 		// 生成的代理对象 默认为该类名的小写
-//		UserService userService = (UserService) applicationContext.getBean("userService");
-		UserService userService = applicationContext.getBean("userService",UserService.class);
-		
+		UserService userService = applicationContext.getBean("userService", UserService.class);
 		userService.deleteUserById("1234");
-
-		System.out.println("-------------");
-
 		userService.findUserById("1234");
+		userService.deleteAll();
+		System.out.println("\n=====分========割========线=====\n");
+
+		OrderService orderService = (OrderService) applicationContext.getBean("orderService");
+		orderService.deleteOrderById("Order123456");
+		orderService.queryOrderByUserName("Aaron");
+		orderService.deleteOrderByIds(Arrays.asList(new String[] { "Order123456", "Order321452" }));
+
 	}
 }
