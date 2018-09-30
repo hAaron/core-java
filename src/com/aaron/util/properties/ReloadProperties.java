@@ -97,6 +97,11 @@ public class ReloadProperties {
 
 	public String getConfig(String key) {
 		return propertiesMap.get(key);
+
+	}
+
+	public static void main(String[] args) {
+		reloadProperties();
 	}
 
 }
