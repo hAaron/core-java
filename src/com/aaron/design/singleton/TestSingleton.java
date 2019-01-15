@@ -30,7 +30,7 @@ public class TestSingleton {
 		// System.out.println(singletonDoubleCheck2);
 
 		// 懒汉式--枚举
-		System.out.println(SingletonEnum.INSTANCE);
+		System.out.println(SingletonEnum.INSTANCE.getInstance());
 	}
 
 }
