@@ -1,6 +1,7 @@
 package com.aaron.test;
 
-import java.lang.reflect.Field;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * 主测试入口
@@ -11,31 +12,12 @@ import java.lang.reflect.Field;
  * @package_type com.aaron.test.TestMain
  */
 public class TestMain {
+	public static ThreadLocal<SimpleDateFormat> threadLocal = new ThreadLocal<SimpleDateFormat>();
 	public static void main(String[] args) {
-
-		// User = new User();
-		try {
-			Class<?> cls = Class.forName("com.aaron.spring.ioc.User");
-			String fieldName = "age";
-			Field field = cls.getDeclaredField(fieldName);
-			Object object = cls.newInstance();
-			field.setAccessible(true);
-			//需要判断字段类型（字符串和数字）
-			field.set(object, 11);
-			System.out.println(field.getType().getName());
-			System.out.println(object.toString());
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (NoSuchFieldException e) {
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
+		if(threadLocal.get() == null) {
+			threadLocal.set(new SimpleDateFormat("yyyy-MM-dd"));
 		}
+		System.out.println(threadLocal.get().format(new Date()));
 
 	}
 

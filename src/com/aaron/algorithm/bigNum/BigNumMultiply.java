@@ -17,12 +17,12 @@ public class BigNumMultiply {
 		// String str2 = "1234";
 		// String str1 = "1076060999";
 		// String str2 = "90188905567";
-//		String str1 = "23456789009877666555544444";
-//		String str2 = "346587436598437594375943875943875";
+		// String str1 = "23456789009877666555544444";
+		// String str2 = "346587436598437594375943875943875";
 
 		String str1 = "99";
 		String str2 = "99";
-		
+
 		int len1 = str1.length();
 		int len2 = str2.length();
 
@@ -75,11 +75,12 @@ public class BigNumMultiply {
 		}
 		// 找到最高位
 		for (m = csize - 1; m >= 0;) {
-			if (c[m] > 0)
+			if (c[m] > 0) {
 				break;
+			}
 			m--;
 		}
-		
+
 		// 由最高位开始打印乘积
 		System.out.print("乘积：");
 		for (int n = 0; n <= m; n++) {

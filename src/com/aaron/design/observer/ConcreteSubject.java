@@ -1,7 +1,7 @@
 package com.aaron.design.observer;
 
-import java.util.*;
-import java.io.*;
+import java.util.LinkedList;
+import java.util.Vector;
 
 /**
  * 在主题类中有一个观察者的集合，当调用主题类的某些方法时，自动循环这个集合，调用观察者的方法。
@@ -20,20 +20,24 @@ public class ConcreteSubject implements Subject {
 		strVector = new Vector();
 	}
 
+	@Override
 	public void attach(Observer o) {
 		observerList.add(o);
 	}
 
+	@Override
 	public void detach(Observer o) {
 		observerList.remove(o);
 	}
 
+	@Override
 	public void sendNotify() {
 		for (int i = 0; i < observerList.size(); i++) {
 			((Observer) observerList.get(i)).update(this);
 		}
 	}
 
+	@Override
 	public void setState(String act, String str) {
 		if (act.equals("ADD")) {
 			strVector.add(str);
@@ -42,6 +46,7 @@ public class ConcreteSubject implements Subject {
 		}
 	}
 
+	@Override
 	public Vector getState() {
 		return strVector;
 	}

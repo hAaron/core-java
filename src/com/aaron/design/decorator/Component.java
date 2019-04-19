@@ -9,5 +9,9 @@ package com.aaron.design.decorator;
  * @package_name com.aaron.design.decorator
  */
 public interface Component {
-	public void PrintString(String s);
+	/**
+	 * 
+	 * @param s
+	 */
+	public void printString(String s);
 }

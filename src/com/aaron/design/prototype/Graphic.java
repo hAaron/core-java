@@ -1,8 +1,5 @@
 package com.aaron.design.prototype;
 
-import java.lang.*;
-import java.io.*;
-
 /**
  * 具体原型（Concrete Prototype）角色：被复制的对象。此角色需要实现抽象的原型角色所要求的接口。
  * 
@@ -21,6 +18,7 @@ public abstract class Graphic implements IGraphic {
 	/**
 	 * 克隆自身的方法
 	 */
+	@Override
 	public Object clone() {
 		try {
 			return super.clone();
@@ -30,10 +28,12 @@ public abstract class Graphic implements IGraphic {
 		}
 	}
 
+	@Override
 	public String getName() {
 		return name;
 	}
 
+	@Override
 	public void setName(String gName) {
 		name = gName;
 	}

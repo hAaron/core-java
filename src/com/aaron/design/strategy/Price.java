@@ -9,7 +9,9 @@ package com.aaron.design.strategy;
  * @package_name com.aaron.design.strategy
  */
 public class Price {
-	// 持有一个具体的策略对象
+	/**
+	 * 持有一个具体的策略对象
+	 */
 	private MemberStrategy strategy;
 
 	/**

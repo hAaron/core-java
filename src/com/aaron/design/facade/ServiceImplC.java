@@ -1,9 +1,17 @@
 package com.aaron.design.facade;
 
-interface ServiceC{
+interface ServiceC {
 	void methodC();
 }
-public class ServiceImplC implements ServiceC{
+
+/**
+ * 
+ * @author Aaron
+ * @date 2019年4月19日
+ * @version 1.0
+ * @package_type com.aaron.design.facade.ServiceImplC
+ */
+public class ServiceImplC implements ServiceC {
 
 	@Override
 	public void methodC() {

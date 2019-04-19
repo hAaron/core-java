@@ -16,7 +16,7 @@ public class TestDecorator {
 	public static void main(String[] args) {
 		Component component = new ConcreteComponent();
 		ConcreteDecoratorA concreteDecoratorA = new ConcreteDecoratorA(component);
-		concreteDecoratorA.PrintString("hello world");
+		concreteDecoratorA.printString("hello world");
 	}
 
 }

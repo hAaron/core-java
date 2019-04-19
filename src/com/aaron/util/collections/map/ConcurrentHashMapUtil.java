@@ -31,6 +31,7 @@ public class ConcurrentHashMapUtil {
 
 	private static void testHashMap(final int s, final int e) {
 		Thread t1 = new Thread() {
+			@Override
 			public void run() {
 				for (int i = 0; i < s; i++) {
 					hashMap.put(i, String.valueOf(i));
@@ -38,6 +39,7 @@ public class ConcurrentHashMapUtil {
 			}
 		};
 		Thread t2 = new Thread() {
+			@Override
 			public void run() {
 				for (int i = s; i < e; i++) {
 					hashMap.put(i, String.valueOf(i));
@@ -54,6 +56,7 @@ public class ConcurrentHashMapUtil {
 
 	private static void testHashtable(final int s, final int e) {
 		Thread t1 = new Thread() {
+			@Override
 			public void run() {
 				for (int i = 0; i < s; i++) {
 					hashTable.put(i, String.valueOf(i));
@@ -61,6 +64,7 @@ public class ConcurrentHashMapUtil {
 			}
 		};
 		Thread t2 = new Thread() {
+			@Override
 			public void run() {
 				for (int i = s; i < e; i++) {
 					hashTable.put(i, String.valueOf(i));
@@ -77,6 +81,7 @@ public class ConcurrentHashMapUtil {
 
 	private static void testConcurrentHashMap(final int s, final int e) {
 		Thread t1 = new Thread() {
+			@Override
 			public void run() {
 				for (int i = 0; i < s; i++) {
 					concurrentHashMap.put(i, String.valueOf(i));
@@ -84,6 +89,7 @@ public class ConcurrentHashMapUtil {
 			}
 		};
 		Thread t2 = new Thread() {
+			@Override
 			public void run() {
 				for (int i = s; i < e; i++) {
 					concurrentHashMap.put(i, String.valueOf(i));

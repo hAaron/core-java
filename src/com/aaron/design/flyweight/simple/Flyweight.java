@@ -9,6 +9,10 @@ package com.aaron.design.flyweight.simple;
  * @package_name com.aaron.design.flyweight.simple
  */
 public interface Flyweight {
-	// 一个示意性方法，参数state是外蕴状态
+	/**
+	 * 一个示意性方法，参数state是外蕴状态
+	 * 
+	 * @param state
+	 */
 	public void operation(String state);
 }

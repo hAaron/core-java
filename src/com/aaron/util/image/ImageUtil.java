@@ -42,8 +42,10 @@ public class ImageUtil {
 	 */
 	public static void thumbnail_w_h(File img, int width, int height, OutputStream out) throws IOException {
 		BufferedImage bi = ImageIO.read(img);
-		double srcWidth = bi.getWidth(); // 源图宽度
-		double srcHeight = bi.getHeight(); // 源图高度
+		// 源图宽度
+		double srcWidth = bi.getWidth();
+		// 源图高度
+		double srcHeight = bi.getHeight();
 
 		double scale = 1;
 
@@ -180,6 +182,7 @@ public class ImageUtil {
 
 	/**
 	 * 循环文件夹下的文件
+	 * 
 	 * @param path
 	 * @throws Exception
 	 */

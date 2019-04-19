@@ -13,6 +13,7 @@ package com.aaron.design.adapter;
  */
 public class AdapterClass extends PersonSource implements JobTarget {
 
+	@Override
 	public void speakFrench() {
 		System.out.println("类适配器，会法语。。。");
 	}

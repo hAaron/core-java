@@ -9,11 +9,11 @@ package com.aaron.design.iterator.part1;
  * @package_name com.aaron.design.iterator
  */
 public interface Iterator {
-	public abstract void First();
+	public abstract void first();
 
-	public abstract void Next();
+	public abstract void next();
 
-	public abstract boolean IsDone();
+	public abstract boolean isDone();
 
-	public abstract void CurrentItem();
+	public abstract void currentItem();
 }

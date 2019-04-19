@@ -40,21 +40,23 @@ public class MailSender2 {
 		return instance;
 	}
 
-	public void send(String to[], String cs[], String ms[], String subject,
-			String content, String formEmail, String fileList[]) {
+	public void send(String to[], String cs[], String ms[], String subject, String content, String formEmail,
+			String fileList[]) {
 		try {
-			Properties p = new Properties(); // Properties p =
-			// System.getProperties();
+			// Properties p = System.getProperties();
+			Properties p = new Properties();
 			p.put("mail.smtp.auth", "true");
 			p.put("mail.transport.protocol", "smtp");
 			p.put("mail.smtp.host", "smtp.163.com");
 			p.put("mail.smtp.port", "25");
 			// 建立会话
 			Session session = Session.getInstance(p);
-			Message msg = new MimeMessage(session); // 建立信息
+			// 建立信息
+			Message msg = new MimeMessage(session);
 			BodyPart messageBodyPart = new MimeBodyPart();
 			Multipart multipart = new MimeMultipart();
-			msg.setFrom(new InternetAddress(formEmail)); // 发件人
+			// 发件人
+			msg.setFrom(new InternetAddress(formEmail));
 
 			String toList = null;
 			String toListcs = null;
@@ -63,29 +65,32 @@ public class MailSender2 {
 			// 发送,
 			if (to != null) {
 				toList = getMailList(to);
-				InternetAddress[] iaToList = new InternetAddress()
-						.parse(toList);
-				msg.setRecipients(Message.RecipientType.TO, iaToList); // 收件人
+				InternetAddress[] iaToList = InternetAddress.parse(toList);
+				// 收件人
+				msg.setRecipients(Message.RecipientType.TO, iaToList);
 			}
 
 			// 抄送
 			if (cs != null) {
 				toListcs = getMailList(cs);
-				InternetAddress[] iaToListcs = new InternetAddress()
-						.parse(toListcs);
-				msg.setRecipients(Message.RecipientType.CC, iaToListcs); // 抄送人
+				InternetAddress[] iaToListcs = InternetAddress.parse(toListcs);
+				// 抄送人
+				msg.setRecipients(Message.RecipientType.CC, iaToListcs);
 			}
 
 			// 密送
 			if (ms != null) {
 				toListms = getMailList(ms);
-				InternetAddress[] iaToListms = new InternetAddress()
-						.parse(toListms);
-				msg.setRecipients(Message.RecipientType.BCC, iaToListms); // 密送人
+				InternetAddress[] iaToListms = InternetAddress.parse(toListms);
+				// 密送人
+				msg.setRecipients(Message.RecipientType.BCC, iaToListms);
 			}
-			msg.setSentDate(new Date()); // 发送日期
-			msg.setSubject(subject); // 主题
-			msg.setText(content); // 内容
+			// 发送日期
+			msg.setSentDate(new Date());
+			// 主题
+			msg.setSubject(subject);
+			// 内容
+			msg.setText(content);
 			// 显示以html格式的文本内容
 			messageBodyPart.setContent(content, "text/html;charset=gbk");
 			multipart.addBodyPart(messageBodyPart);
@@ -99,10 +104,13 @@ public class MailSender2 {
 			// 邮件服务器进行验证
 			Transport tran = session.getTransport("smtp");
 			String host = "smtp.163.com";
-			String user = "";//邮箱
-			String password = "";//密码
+			// 邮箱
+			String user = "";
+			// 密码
+			String password = "";
 			tran.connect(host, user, password);
-			tran.sendMessage(msg, msg.getAllRecipients()); // 发送
+			// 发送
+			tran.sendMessage(msg, msg.getAllRecipients()); 
 			System.out.println("邮件发送成功");
 
 		} catch (Exception e) {
@@ -110,15 +118,21 @@ public class MailSender2 {
 		}
 	}
 
-	// 添加多个附件
+	/**
+	 * 添加多个附件
+	 * 
+	 * @param fileList
+	 * @param multipart
+	 * @throws MessagingException
+	 * @throws UnsupportedEncodingException
+	 */
 	public void addTach(String fileList[], Multipart multipart)
 			throws MessagingException, UnsupportedEncodingException {
 		for (int index = 0; index < fileList.length; index++) {
 			MimeBodyPart mailArchieve = new MimeBodyPart();
 			FileDataSource fds = new FileDataSource(fileList[index]);
 			mailArchieve.setDataHandler(new DataHandler(fds));
-			mailArchieve.setFileName(MimeUtility.encodeText(fds.getName(),
-					"GBK", "B"));
+			mailArchieve.setFileName(MimeUtility.encodeText(fds.getName(), "GBK", "B"));
 			multipart.addBodyPart(mailArchieve);
 		}
 	}
@@ -144,9 +158,9 @@ public class MailSender2 {
 
 	public static void main(String args[]) {
 		MailSender2 send = MailSender2.getInstance();
-		String to[] = { "1330195548@qq.com", "2539648260@qq.com" };
-		String cs[] = null;
-		String ms[] = null;
+		String[] to = { "1330195548@qq.com", "2539648260@qq.com" };
+		String[] cs = null;
+		String[] ms = null;
 		String subject = "测试一下";
 		String content = "这是邮件内容，仅仅是测试，不需要回复";
 		String formEmail = "15000484641@163.com";

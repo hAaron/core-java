@@ -20,6 +20,7 @@ class ConcreteIterator implements Iterator {
 		this.list = list;
 	}
 
+	@Override
 	public boolean hasNext() {
 		if (cursor == list.size()) {
 			return false;
@@ -27,6 +28,7 @@ class ConcreteIterator implements Iterator {
 		return true;
 	}
 
+	@Override
 	public Object next() {
 		Object obj = null;
 		if (this.hasNext()) {

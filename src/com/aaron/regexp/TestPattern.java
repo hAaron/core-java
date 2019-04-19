@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 正则表达式  正则：pattern（模式）。split（分割_成数组）。compile（编译）、matcher（匹配器）
+ * 正则表达式 正则：pattern（模式）。split（分割_成数组）。compile（编译）、matcher（匹配器）
  * 
  * @author Aaron
  * @date 2017年6月20日
@@ -12,6 +12,9 @@ import java.util.regex.Pattern;
  * @package_name com.aaron.regexp
  */
 public class TestPattern {
+
+	private static final String PATTERN_CHAR = "[0-9/.]";
+	private static final String PATTERN_NUM = "[^0-9]";
 
 	public static void main(String[] args) {
 
@@ -52,14 +55,14 @@ public class TestPattern {
 		// 筛选数字
 		System.out.println("****筛选数字***");
 		String string5 = "as233dsdf2ssgetNum34dfs.sdfa23266";
-		Pattern pattern5 = Pattern.compile("[^0-9]");
+		Pattern pattern5 = Pattern.compile(PATTERN_NUM);
 		Matcher match5 = pattern5.matcher(string5);
 		String number = match5.replaceAll("");
 		System.out.println(number);
 		// 筛选字符
 		System.out.println("*****筛选字符***");
 		String string6 = "as233dsdf2ssgetNum34dfs.sdfa23266";
-		Pattern pattern6 = Pattern.compile("[0-9/.]");
+		Pattern pattern6 = Pattern.compile(PATTERN_CHAR);
 		Matcher match6 = pattern6.matcher(string6);
 		String result = match6.replaceAll("");
 		System.out.println(result);

@@ -26,24 +26,36 @@ public class TextCopyFileAndMove {
 	public static void fileMove(String from, String to) throws Exception {
 		try {
 			File dir = new File(from);
-			File[] files = dir.listFiles();// 将文件或文件夹放入文件集
-			if (files == null)// 判断文件集是否为空
+			// 将文件或文件夹放入文件集
+			File[] files = dir.listFiles();
+			// 判断文件集是否为空
+			if (files == null) {
 				return;
-			File moveDir = new File(to);// 创建目标目录
-			if (!moveDir.exists()) {// 判断目标目录是否存在
-				moveDir.mkdirs();// 不存在则创建
 			}
-			for (int i = 0; i < files.length; i++) {// 遍历文件集
-				if (files[i].isDirectory()) {// 如果是文件夹或目录,则递归调用fileMove方法，直到获得目录下的文件
-					fileMove(files[i].getPath(), to + "\\" + files[i].getName());// 递归移动文件
-					files[i].delete();// 删除文件所在原目录
+			// 创建目标目录
+			File moveDir = new File(to);
+			// 判断目标目录是否存在
+			if (!moveDir.exists()) {
+				// 不存在则创建
+				moveDir.mkdirs();
+			}
+			// 遍历文件集
+			for (int i = 0; i < files.length; i++) {
+				// 如果是文件夹或目录,则递归调用fileMove方法，直到获得目录下的文件
+				if (files[i].isDirectory()) {
+					// 递归移动文件
+					fileMove(files[i].getPath(), to + "\\" + files[i].getName());
+					// 删除文件所在原目录
+					files[i].delete();
 				}
-				File moveFile = new File(moveDir.getPath() + "\\"// 将文件目录放入移动后的目录
-						+ files[i].getName());
-				if (moveFile.exists()) {// 目标文件夹下存在的话，删除
+				// 将文件目录放入移动后的目录
+				File moveFile = new File(moveDir.getPath() + "\\" + files[i].getName());
+				if (moveFile.exists()) {
+					// 目标文件夹下存在的话，删除
 					moveFile.delete();
 				}
-				files[i].renameTo(moveFile);// 移动文件
+				// 移动文件
+				files[i].renameTo(moveFile);
 				System.out.println(files[i] + " 移动成功");
 			}
 		} catch (Exception e) {
@@ -59,8 +71,10 @@ public class TextCopyFileAndMove {
 	 */
 	public static void copyFileFromDir(String toPath, String fromPath) {
 		File file = new File(fromPath);
-		createFile(toPath, false);// true:创建文件 false创建目录
-		if (file.isDirectory()) {// 如果是目录
+		// true:创建文件 false创建目录
+		createFile(toPath, false);
+		// 如果是目录
+		if (file.isDirectory()) {
 			copyFileToDir(toPath, listFile(file));
 		}
 	}
@@ -72,12 +86,16 @@ public class TextCopyFileAndMove {
 	 * @param fromPath
 	 */
 	public static void copyDir(String toPath, String fromPath) {
-		File targetFile = new File(toPath);// 创建文件
-		createFile(targetFile, false);// 创建目录
-		File file = new File(fromPath);// 创建文件
-		if (targetFile.isDirectory() && file.isDirectory()) {// 如果传入是目录
-			copyFileToDir(targetFile.getAbsolutePath() + "/" + file.getName(),
-					listFile(file));// 复制文件到指定目录
+		// 创建文件
+		File targetFile = new File(toPath);
+		// 创建目录
+		createFile(targetFile, false);
+		// 创建文件
+		File file = new File(fromPath);
+		// 如果传入是目录
+		if (targetFile.isDirectory() && file.isDirectory()) {
+			// 复制文件到指定目录
+			copyFileToDir(targetFile.getAbsolutePath() + "/" + file.getName(), listFile(file));
 		}
 	}
 
@@ -88,26 +106,35 @@ public class TextCopyFileAndMove {
 	 * @param filePath
 	 */
 	public static void copyFileToDir(String toDir, String[] filePath) {
-		if (toDir == null || "".equals(toDir)) {// 目录路径为空
+		// 目录路径为空
+		if (toDir == null || "".equals(toDir)) {
 			System.out.println("参数错误，目标路径不能为空");
 			return;
 		}
 		File targetFile = new File(toDir);
-		if (!targetFile.exists()) {// 如果指定目录不存在
-			targetFile.mkdir();// 新建目录
+		// 如果指定目录不存在
+		if (!targetFile.exists()) {
+			// 新建目录
+			targetFile.mkdir();
 		} else {
-			if (!targetFile.isDirectory()) {// 如果不是目录
+			// 如果不是目录
+			if (!targetFile.isDirectory()) {
 				System.out.println("参数错误，目标路径指向的不是一个目录！");
 				return;
 			}
 		}
-		for (int i = 0; i < filePath.length; i++) {// 遍历需要复制的文件路径
-			File file = new File(filePath[i]);// 创建文件
-			if (file.isDirectory()) {// 判断是否是目录
-				copyFileToDir(toDir + "/" + file.getName(), listFile(file));// 递归调用方法获得目录下的文件
+		// 遍历需要复制的文件路径
+		for (int i = 0; i < filePath.length; i++) {
+			// 创建文件
+			File file = new File(filePath[i]);
+			// 判断是否是目录
+			if (file.isDirectory()) {
+				// 递归调用方法获得目录下的文件
+				copyFileToDir(toDir + "/" + file.getName(), listFile(file));
 				System.out.println("复制文件 " + file);
 			} else {
-				copyFileToDir(toDir, file, "");// 复制文件到指定目录
+				// 复制文件到指定目录
+				copyFileToDir(toDir, file, "");
 			}
 		}
 	}
@@ -127,7 +154,8 @@ public class TextCopyFileAndMove {
 			newFile = toDir + "/" + file.getName();
 		}
 		File tFile = new File(newFile);
-		copyFile(tFile, file);// 调用方法复制文件
+		// 调用方法复制文件
+		copyFile(tFile, file);
 	}
 
 	/**
@@ -137,26 +165,35 @@ public class TextCopyFileAndMove {
 	 * @param fromFile
 	 */
 	public static void copyFile(File toFile, File fromFile) {
-		if (toFile.exists()) {// 判断目标目录中文件是否存在
+		// 判断目标目录中文件是否存在
+		if (toFile.exists()) {
 			System.out.println("文件" + toFile.getAbsolutePath() + "已经存在，跳过该文件！");
 			return;
 		} else {
-			createFile(toFile, true);// 创建文件
+			// 创建文件
+			createFile(toFile, true);
 		}
-		System.out.println("复制文件" + fromFile.getAbsolutePath() + "到"
-				+ toFile.getAbsolutePath());
+		System.out.println("复制文件" + fromFile.getAbsolutePath() + "到" + toFile.getAbsolutePath());
 		try {
-			InputStream is = new FileInputStream(fromFile);// 创建文件输入流
-			FileOutputStream fos = new FileOutputStream(toFile);// 文件输出流
-			byte[] buffer = new byte[1024];// 字节数组
-			while (is.read(buffer) != -1) {// 将文件内容写到文件中
+			// 创建文件输入流
+			InputStream is = new FileInputStream(fromFile);
+			// 文件输出流
+			FileOutputStream fos = new FileOutputStream(toFile);
+			// 字节数组
+			byte[] buffer = new byte[1024];
+			// 将文件内容写到文件中
+			while (is.read(buffer) != -1) {
 				fos.write(buffer);
 			}
-			is.close();// 输入流关闭
-			fos.close();// 输出流关闭
-		} catch (FileNotFoundException e) {// 捕获文件不存在异常
+			// 输入流关闭
+			is.close();
+			// 输出流关闭
+			fos.close();
+		} catch (FileNotFoundException e) {
+			// 捕获文件不存在异常
 			e.printStackTrace();
-		} catch (IOException e) {// 捕获异常
+		} catch (IOException e) {
+			// 捕获异常
 			e.printStackTrace();
 		}
 	}
@@ -167,11 +204,15 @@ public class TextCopyFileAndMove {
 	 * @param dir
 	 * @return
 	 */
-	public static String[] listFile(File dir) {//
-		String absolutPath = dir.getAbsolutePath();// 声获字符串赋值为路传入文件的路径
-		String[] paths = dir.list();// 文件名数组
-		String[] files = new String[paths.length];// 声明字符串数组，长度为传入文件的个数
-		for (int i = 0; i < paths.length; i++) {// 遍历显示文件绝对路径
+	public static String[] listFile(File dir) {
+		// 声获字符串赋值为路传入文件的路径
+		String absolutPath = dir.getAbsolutePath();
+		// 文件名数组
+		String[] paths = dir.list();
+		// 声明字符串数组，长度为传入文件的个数
+		String[] files = new String[paths.length];
+		for (int i = 0; i < paths.length; i++) {
+			// 遍历显示文件绝对路径
 			files[i] = absolutPath + "/" + paths[i];
 		}
 		return files;
@@ -184,7 +225,8 @@ public class TextCopyFileAndMove {
 	 * @param isFile
 	 */
 	public static void createFile(String path, boolean isFile) {
-		createFile(new File(path), isFile);// 调用方法创建新文件或目录
+		// 调用方法创建新文件或目录
+		createFile(new File(path), isFile);
 	}
 
 	/**
@@ -194,13 +236,18 @@ public class TextCopyFileAndMove {
 	 * @param isFile
 	 */
 	public static void createFile(File file, boolean isFile) {
-		if (!file.exists()) {// 如果文件不存在
-			if (!file.getParentFile().exists()) {// 如果文件父目录不存在
+		// 如果文件不存在
+		if (!file.exists()) {
+			// 如果文件父目录不存在
+			if (!file.getParentFile().exists()) {
 				createFile(file.getParentFile(), false);
-			} else {// 存在文件父目录
-				if (isFile) {// 创建文件
+			} else {
+				// 存在文件父目录
+				if (isFile) {
+					// 创建文件
 					try {
-						file.createNewFile();// 创建新文件
+						// 创建新文件
+						file.createNewFile();
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
@@ -211,21 +258,28 @@ public class TextCopyFileAndMove {
 		}
 	}
 
-	public static void main(String[] args) {// java程序主入口处
-		// E:\temp\myFile
-		String fromPath = "E:/temp/myFile";// 目录路径
-		String toPath = "D:/createFile";// 源路径
+	/**
+	 * java程序主入口处
+	 * 
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// 目录路径 E:\temp\myFile
+		String fromPath = "E:/temp/myFile";
+		// 源路径
+		String toPath = "D:/createFile";
 		System.out.println("1.移动文件：从路径 " + fromPath + " 移动到路径 " + toPath);
 		try {
-			fileMove(fromPath, toPath);// 调用方法实现文件的移动
+			// 调用方法实现文件的移动
+			fileMove(fromPath, toPath);
 		} catch (Exception e) {
 			System.out.println("移动文件出现问题" + e.getMessage());
 		}
-		System.out.println("2.复制目录 " + toPath + " 下的文件（不包括该目录）到指定目录" + fromPath
-				+ " ，会连同子目录一起复制过去。");
-		copyFileFromDir(fromPath, toPath);// 调用方法实现目录复制
-		System.out.println("3.复制目录 " + fromPath + "到指定目录 " + toPath
-				+ " ,将目录以及目录下的文件和子目录全部复制到目标目录");
-		copyDir(toPath, fromPath);// 调用方法实现目录以用目录下的文件和子目录全部复制
+		System.out.println("2.复制目录 " + toPath + " 下的文件（不包括该目录）到指定目录" + fromPath + " ，会连同子目录一起复制过去。");
+		// 调用方法实现目录复制
+		copyFileFromDir(fromPath, toPath);
+		System.out.println("3.复制目录 " + fromPath + "到指定目录 " + toPath + " ,将目录以及目录下的文件和子目录全部复制到目标目录");
+		// 调用方法实现目录以用目录下的文件和子目录全部复制
+		copyDir(toPath, fromPath);
 	}
 }

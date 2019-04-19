@@ -8,6 +8,7 @@ package com.aaron.design.factory.common;
  * @package_name com.aaron.design.factory.common
  */
 public class MailSender implements ISender {
+	@Override
 	public void send() {
 		System.out.println("####发送邮件####");
 	}

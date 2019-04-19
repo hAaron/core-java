@@ -10,5 +10,10 @@ package com.aaron.design.factorymethod;
  * @package_name com.aaron.design.factorymethod
  */
 public interface ExportFactory {
+	/**
+	 * 工厂
+	 * @param type
+	 * @return
+	 */
 	public ExportFile factory(String type);
 }

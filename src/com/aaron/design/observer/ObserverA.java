@@ -1,7 +1,6 @@
 package com.aaron.design.observer;
 
-import java.io.*;
-import java.util.*;
+import java.util.Vector;
 
 /**
  * 
@@ -19,12 +18,12 @@ public class ObserverA implements Observer {
 		// strVector = new Vector();
 	}
 
+	@Override
 	public void update(Subject subject) {
 		strVector = subject.getState();
 		System.out.println("----- ObserverA will be updated -----");
 		for (int i = 0; i < strVector.size(); i++) {
-			System.out
-					.println("Num " + i + " is :" + (String) strVector.get(i));
+			System.out.println("Num " + i + " is :" + (String) strVector.get(i));
 		}
 	}
 

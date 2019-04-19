@@ -18,23 +18,27 @@ public class VectorIterator implements Iterator {
 		data = _data;
 	}
 
-	public void First() {
+	@Override
+	public void first() {
 		// cursor = 0;
 		cursor = (data.size() - 1);
 	}
 
-	public void Next() {
+	@Override
+	public void next() {
 		// cursor++;
 		cursor--;
 	}
 
-	public boolean IsDone() {
+	@Override
+	public boolean isDone() {
 		// return (cursor >= data.size());
 		return (cursor < 0);
 	}
 
-	public void CurrentItem() {
-		if (IsDone()) {
+	@Override
+	public void currentItem() {
+		if (isDone()) {
 			System.out.println("Reach the end of the vector");
 		} else {
 			System.out.println("Number " + cursor + ": " + data.get(cursor));

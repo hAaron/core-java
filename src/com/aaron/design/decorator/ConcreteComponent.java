@@ -1,7 +1,5 @@
 package com.aaron.design.decorator;
 
-import java.io.*;
-
 /**
  * 具体被装饰类
  * 
@@ -14,7 +12,8 @@ public class ConcreteComponent implements Component {
 	public ConcreteComponent() {
 	}
 
-	public void PrintString(String s) {
+	@Override
+	public void printString(String s) {
 		System.out.println("Input String is:" + s);
 	}
 }

@@ -8,7 +8,7 @@ package com.aaron.design.decorator;
  * @version 1.0
  * @package_name com.aaron.design.decorator
  */
-public class ConcreteDecoratorA extends Decorator {
+public class ConcreteDecoratorA extends AbstractDecorator {
 	public ConcreteDecoratorA(Component c) {
 		super(c);
 	}
@@ -16,16 +16,17 @@ public class ConcreteDecoratorA extends Decorator {
 	/**
 	 * 具体的装饰器类
 	 */
-	public void PrintString(String s) {
-		super.PrintString(s);
-		PrintStringLen(s);
+	@Override
+	public void printString(String s) {
+		super.printString(s);
+		printStringLen(s);
 	}
 
 	/**
 	 * 额外扩展的方法
 	 * @param s
 	 */
-	public void PrintStringLen(String s) {
-		System.out.println("额外扩展的方法###The length of string is:" + s.length());
+	public void printStringLen(String string) {
+		System.out.println("额外扩展的方法###The length of string is:" + string.length());
 	}
 }

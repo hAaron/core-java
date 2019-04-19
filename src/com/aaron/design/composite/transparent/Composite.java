@@ -37,6 +37,7 @@ public class Composite extends Component {
 	 * @param child
 	 *            子构件对象
 	 */
+	@Override
 	public void addChild(Component child) {
 		childComponents.add(child);
 	}
@@ -47,6 +48,7 @@ public class Composite extends Component {
 	 * @param index
 	 *            子构件对象的下标
 	 */
+	@Override
 	public void removeChild(int index) {
 		childComponents.remove(index);
 	}
@@ -54,6 +56,7 @@ public class Composite extends Component {
 	/**
 	 * 聚集管理方法，返回所有子构件对象
 	 */
+	@Override
 	public List<Component> getChild() {
 		return childComponents;
 	}

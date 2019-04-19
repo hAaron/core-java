@@ -8,7 +8,9 @@ package com.aaron.design.factory.common;
  * @package_name com.aaron.design.factory.common
  */
 public class SmsSender implements ISender {
-    public void send() {
-        System.out.println("####发送短信####");
-    }
+
+	@Override
+	public void send() {
+		System.out.println("####发送短信####");
+	}
 }

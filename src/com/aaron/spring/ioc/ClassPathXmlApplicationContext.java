@@ -94,6 +94,7 @@ public class ClassPathXmlApplicationContext implements ApplicationContext {
 	/**
 	 * 根据传入的bean的id值获取容器中的对象，类型为Object
 	 */
+	@Override
 	public Object getBean(String beanId) {
 		// 根据传入beanId获取类对象
 		Class<?> cls = beanDefinationFactory.get(beanId);
@@ -133,6 +134,7 @@ public class ClassPathXmlApplicationContext implements ApplicationContext {
 	 * 返回指定的类型，在调用该方法时省去强转的步骤，传入时第二个参数为指定的类型， 方法实现同上一个方法，只是在返回对象前加了类型强转
 	 */
 	@SuppressWarnings("unchecked")
+	@Override
 	public <T> T getBean(String beanId, Class<T> c) {
 		return (T) getBean(beanId);
 
@@ -192,6 +194,7 @@ public class ClassPathXmlApplicationContext implements ApplicationContext {
 	/**
 	 * 销毁方法，用于释放资源
 	 */
+	@Override
 	public void destroy() {
 		singletonBeanFactory.clear();
 		singletonBeanFactory = null;

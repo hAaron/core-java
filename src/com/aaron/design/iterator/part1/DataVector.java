@@ -1,7 +1,10 @@
 package com.aaron.design.iterator.part1;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Vector;
 
 /**
  * 定义具体容器角色
@@ -33,7 +36,8 @@ public class DataVector implements Aggregate {
 		}
 	}
 
-	public Iterator CreateIterator() {
+	@Override
+	public Iterator createIterator() {
 		return new VectorIterator(data);
 	}
 

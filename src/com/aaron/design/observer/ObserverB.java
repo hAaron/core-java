@@ -1,8 +1,6 @@
 package com.aaron.design.observer;
 
-
-import java.io.*;
-import java.util.*;
+import java.util.Vector;
 
 /**
  * 
@@ -18,6 +16,7 @@ public class ObserverB implements Observer {
 		strVector = new Vector();
 	}
 
+	@Override
 	public void update(Subject subject) {
 		strVector = (Vector) (subject.getState()).clone();
 		// ----- Sorted vector ---------------------------
@@ -33,8 +32,7 @@ public class ObserverB implements Observer {
 		}
 		System.out.println("----- ObserverB will be updated -----");
 		for (int i = 0; i < strVector.size(); i++) {
-			System.out
-					.println("Num " + i + " is :" + (String) strVector.get(i));
+			System.out.println("Num " + i + " is :" + (String) strVector.get(i));
 		}
 	}
 

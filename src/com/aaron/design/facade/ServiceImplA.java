@@ -1,9 +1,17 @@
 package com.aaron.design.facade;
 
-interface ServiceA{
+interface ServiceA {
 	void methodA();
 }
-public class ServiceImplA implements ServiceA{
+
+/**
+ * 
+ * @author Aaron
+ * @date 2019年4月19日
+ * @version 1.0
+ * @package_type com.aaron.design.facade.ServiceImplA
+ */
+public class ServiceImplA implements ServiceA {
 
 	@Override
 	public void methodA() {

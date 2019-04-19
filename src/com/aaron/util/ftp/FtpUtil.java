@@ -13,6 +13,7 @@ import org.apache.commons.net.ftp.FTPFile;
 
 /**
  * ftp工具类：主要用户ftp文件上传下载，以及获取文件名
+ * 
  * @author Aaron
  * @date 2017年5月25日
  * @version 1.0
@@ -22,22 +23,37 @@ public class FtpUtil {
 
 	private static FTPClient ftpClient;
 	private static final String strencoding = "UTF-8";
-	private static int port = 21; // 端口号
-	private static final String host = "103.37.124.35"; // 服务器IP地址
-	private static final String username = "hbaaron"; // 用户名
-	private static final String password = "650EB97A171e16"; // 密码
-	private static final String path = "ftp://103.37.124.35/"; // ftpurl
 	/**
-	 * 连接ftp
-	 * 获取FTPClient实例 
+	 * 端口号
+	 */
+	private static int port = 21;
+	/**
+	 * 服务器IP地址
+	 */
+	private static final String HOST = "103.37.124.35";
+	/**
+	 * 用户名
+	 */
+	private static final String USER_NAME = "hbaaron";
+	/**
+	 * 密码
+	 */
+	private static final String PASSWORD = "650EB97A171e16";
+	/**
+	 * ftpurl
+	 */
+	private static final String PATH = "ftp://103.37.124.35/";
+
+	/**
+	 * 连接ftp 获取FTPClient实例
 	 */
 	public static FTPClient getFtpClient() {
 		ftpClient = new FTPClient();
 		try {
 			// 获取连接
-			ftpClient.connect(host, port);
+			ftpClient.connect(HOST, port);
 			// 登录
-			ftpClient.login(username, password);
+			ftpClient.login(USER_NAME, PASSWORD);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -119,11 +135,12 @@ public class FtpUtil {
 	 * @param localPath
 	 *            本地存储路径
 	 */
-	public static void download(String ftpPath, String fileName,
-			String localPath) {
+	public static void download(String ftpPath, String fileName, String localPath) {
 		try {
-			ftpClient.changeWorkingDirectory(ftpPath);// 转移到FTP服务器目录
-			FTPFile[] ffs = ftpClient.listFiles();// 下载文件列表
+			// 转移到FTP服务器目录
+			ftpClient.changeWorkingDirectory(ftpPath);
+			// 下载文件列表
+			FTPFile[] ffs = ftpClient.listFiles();
 
 			for (FTPFile ff : ffs) {
 				if (ff.getName().equals(fileName)) {
@@ -151,8 +168,7 @@ public class FtpUtil {
 			ftpClient.changeWorkingDirectory(directory);
 			FTPFile[] files = ftpClient.listFiles();
 			for (int i = 0; i < files.length; i++) {
-				System.out.println("文件名:" + files[i].getName() + " 文件大小为："
-						+ files[i].getSize());
+				System.out.println("文件名:" + files[i].getName() + " 文件大小为：" + files[i].getSize());
 				if (files[i].isFile()) {
 				} else if (files[i].isDirectory()) {
 					fileLists(directory + files[i].getName() + "/");
@@ -185,8 +201,7 @@ public class FtpUtil {
 		System.out.println("==========================");
 
 		System.out.println("测试从ftp上下载文件 开始。。。。。。。。");
-		ftp.download("/logs/", "localhost.2016-03-23.log",
-				"D:/AllFiles/testftp");
+		ftp.download("/logs/", "localhost.2016-03-23.log", "D:/AllFiles/testftp");
 		System.out.println("测试从ftp上下载文件 结束。。。。。。。。");
 		System.out.println("==========================");
 

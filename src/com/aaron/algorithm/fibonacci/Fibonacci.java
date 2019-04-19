@@ -19,10 +19,11 @@ public class Fibonacci {
 	 * @return
 	 */
 	public static int FibonacciRecursively(int n) {
-		if (n < 2)
+		if (n < 2) {
 			return n;
-		else
+		} else {
 			return FibonacciRecursively(n - 1) + FibonacciRecursively(n - 2);
+		}
 	}
 
 	/**
@@ -34,10 +35,11 @@ public class Fibonacci {
 	 * @return
 	 */
 	public static int FibonacciTailRecursively(int n, int acc1, int acc2) {
-		if (n == 0)
+		if (n == 0) {
 			return acc1;
-		else
+		} else {
 			return FibonacciTailRecursively(n - 1, acc2, acc1 + acc2);
+		}
 	}
 
 	public static void main(String[] args) {
