@@ -16,7 +16,6 @@ public interface ApplicationContext {
 	/**
 	 * 销毁方法，用于释放资源
 	 */
-	@Override
 	public void destroy();
 
 }

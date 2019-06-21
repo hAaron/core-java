@@ -13,12 +13,10 @@ import com.aaron.design.factory.common.SmsSender;
  */
 public class SendFactory {
 
-	@Override
 	public static ISender produceSMS() {
 		return new SmsSender();
 	}
 
-	@Override
 	public static ISender produceEmail() {
 		return new MailSender();
 	}

@@ -13,18 +13,15 @@ public class TestAdapter {
 	public static void main(String[] args) {
 
 		// 类适配器
-		JobTarget jobTarget1 = new AdapterClass();
-		jobTarget1.speakEnglish();
-		jobTarget1.speakJapanese();
-		jobTarget1.speakFrench();
-		
+		IGermanyElectricity germanyElectricity = new AdapterGermanyElectricityClass();
+		germanyElectricity.use110v();
+
 		System.out.println(".............................................");
 		// 对象适配器
-		PersonSource personSource = new PersonSource();
-		JobTarget jobTarget2 = new AdapterObject(personSource);
-		jobTarget2.speakEnglish();
-		jobTarget2.speakJapanese();
-		jobTarget2.speakFrench();
+		IChinaElectricity chinaElectricity = new ChinaElectricityImpl();
+		IGermanyElectricity germanyElectricity2 = new AdapterGermanyElectricityObject(chinaElectricity);
+		germanyElectricity2.use110v();
+
 	}
 
 }

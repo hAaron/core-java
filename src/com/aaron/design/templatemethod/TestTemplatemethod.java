@@ -10,10 +10,10 @@ package com.aaron.design.templatemethod;
  */
 public class TestTemplatemethod {
 	public static void main(String[] args) {
-		Account account = new MoneyMarketAccount();
+		AbstractAccount account = new MoneyMarketAccount();
 		System.out.println("货币市场账号的利息数额为：" + account.calculateInterest());
 		System.out.println("******************************************");
-		account = new CDAccount();
+		account = new RegularIntervalsAccount();
 		System.out.println("定期账号的利息数额为：" + account.calculateInterest());
 	}
 }

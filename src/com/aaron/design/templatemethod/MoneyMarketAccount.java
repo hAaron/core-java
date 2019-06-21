@@ -10,7 +10,7 @@ package com.aaron.design.templatemethod;
  * @version 1.0
  * @package_name com.aaron.design.templatemethod
  */
-public class MoneyMarketAccount extends Account {
+public class MoneyMarketAccount extends AbstractAccount {
 
 	@Override
 	protected String doCalculateAccountType() {

@@ -8,7 +8,7 @@ package com.aaron.design.templatemethod;
  * @version 1.0
  * @package_name com.aaron.design.templatemethod
  */
-public class CDAccount extends Account {
+public class RegularIntervalsAccount extends AbstractAccount {
 
 	@Override
 	protected String doCalculateAccountType() {
