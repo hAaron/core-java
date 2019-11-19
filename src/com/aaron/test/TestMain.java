@@ -1,7 +1,8 @@
 package com.aaron.test;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * 主测试入口
@@ -12,13 +13,13 @@ import java.util.Date;
  * @package_type com.aaron.test.TestMain
  */
 public class TestMain {
-	public static ThreadLocal<SimpleDateFormat> threadLocal = new ThreadLocal<SimpleDateFormat>();
 	public static void main(String[] args) {
-		if(threadLocal.get() == null) {
-			threadLocal.set(new SimpleDateFormat("yyyy-MM-dd"));
+
+		List<String> strings = Arrays.asList("6", "1", "3", "1", "2");
+		Collections.sort(strings);// sort方法在这里
+		for (String string : strings) {
+			System.out.println(string);
 		}
-		System.out.println(threadLocal.get().format(new Date()));
 
 	}
-
 }

@@ -29,7 +29,7 @@ public class HeapSort {
 			buildMaxHeap(a, arrayLength - 1 - i);
 			// 交换堆顶和最后一个元素
 			swap(a, 0, arrayLength - 1 - i);
-//			System.out.println(Arrays.toString(a));
+			// System.out.println(Arrays.toString(a));
 		}
 		System.out.println(Arrays.toString(a));
 	}
