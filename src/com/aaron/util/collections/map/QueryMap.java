@@ -27,7 +27,7 @@ public class QueryMap {
 	}
 
 	/**
-	 * 第二种：通过Map.entrySet使用iterator遍历key和value
+	 * 第二种：推荐，尤其是容量大时，通过Map.entrySet使用iterator遍历key和value
 	 * 
 	 * @param map
 	 */
