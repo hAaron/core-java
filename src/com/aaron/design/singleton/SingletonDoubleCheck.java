@@ -1,7 +1,7 @@
 package com.aaron.design.singleton;
 
 /**
- * 单例模式--懒汉式 双检索机制 线程同步
+ * 单例模式--懒汉式 双检锁机制 线程同步
  * 
  * @author Aaron
  * @date 2017年6月1日
@@ -17,7 +17,7 @@ public class SingletonDoubleCheck {
 	}
 
 	/**
-	 * 双检索机制
+	 * 双检索机制，指令重排导致单例模式失效
 	 * 
 	 * @return
 	 */
@@ -26,7 +26,7 @@ public class SingletonDoubleCheck {
 			synchronized (SingletonDoubleCheck.class) {
 				SingletonDoubleCheck temp = instance;
 				if (temp == null) {
-					temp = new SingletonDoubleCheck();
+					temp = new SingletonDoubleCheck();// 非原子操作
 					instance = temp;
 				}
 			}
@@ -34,6 +34,10 @@ public class SingletonDoubleCheck {
 		return instance;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public static SingletonDoubleCheck getInstanceByVolatile() {
 		if (instanceVolatile == null) {
 			synchronized (SingletonDoubleCheck.class) {
