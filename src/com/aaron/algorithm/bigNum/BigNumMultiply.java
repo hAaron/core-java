@@ -86,7 +86,7 @@ public class BigNumMultiply {
 		for (int n = 0; n <= m; n++) {
 			System.out.print(c[m - n]);
 		}
-		System.out.println("");
+		System.out.println(" ");
 	}
 
 }
