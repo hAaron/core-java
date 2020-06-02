@@ -6,9 +6,9 @@ import java.sql.*;
 public class DBUtil {
 
     //这里可以设置数据库名称
-    private final static String URL = "jdbc:sqlserver://192.168.150.128:1433;DatabaseName=people";
+    private final static String URL = "jdbc:sqlserver://127.0.0.1:1433;DatabaseName=728";
     private static final String USER="sa";
-    private static final String PASSWORD="!QAZ2wsx";
+    private static final String PASSWORD="1qaz2wsx";
 
     private static Connection conn=null;
     //静态代码块（将加载驱动、连接数据库放入静态块中）
@@ -37,9 +37,11 @@ public class DBUtil {
         //3.通过数据库的连接操作数据库，实现增删改查
         Statement stmt = conn.createStatement();
         //ResultSet executeQuery(String sqlString)：执行查询数据库的SQL语句   ，返回一个结果集（ResultSet）对象。
-        ResultSet rs = stmt.executeQuery("select id,name,age from tb_user");
+        ResultSet rs = stmt.executeQuery("select fdPlateNo from vw_enter");
         while(rs.next()){//如果对象中有数据，就会循环打印出来
-            System.out.println(rs.getInt("id")+","+rs.getString("name")+","+rs.getInt("age"));
+      //
+      // System.out.println(rs.getInt("id")+","+rs.getString("name")+","+rs.getInt("age"));
+            System.out.println(rs.getString("fdPlateNo"));
         }
     }
 
