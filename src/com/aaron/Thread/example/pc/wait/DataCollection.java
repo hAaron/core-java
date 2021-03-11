@@ -9,14 +9,14 @@ package com.aaron.Thread.example.pc.wait;
  * @package_name com.aaron.Thread.example.pc.wait
  */
 public class DataCollection {
-	private long value;
+    private long value;
 
-	public void set(long value) {
-		this.value = value;
+    public void set(long value) {
+        this.value = value;
 
-	}
+    }
 
-	public long get() {
-		return value;
-	}
+    public long get() {
+        return value;
+    }
 }

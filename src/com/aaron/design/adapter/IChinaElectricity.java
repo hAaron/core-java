@@ -10,9 +10,9 @@ package com.aaron.design.adapter;
  */
 public interface IChinaElectricity {
 
-	/**
-	 * 使用220v电压
-	 */
-	public void use220v();
+    /**
+     * 使用220v电压
+     */
+    public void use220v();
 
 }

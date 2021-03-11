@@ -10,8 +10,8 @@ package com.aaron.design.proxy.cglib;
  */
 public class UserDaoImpl {
 
-	public void addUser() {
-		System.out.println("新增用户>>>>>>>>>>");
-	}
+    public void addUser() {
+        System.out.println("新增用户>>>>>>>>>>");
+    }
 
 }

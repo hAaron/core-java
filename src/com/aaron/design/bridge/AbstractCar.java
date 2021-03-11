@@ -9,5 +9,5 @@ package com.aaron.design.bridge;
  * @package_name com.aaron.design.bridge
  */
 public abstract class AbstractCar {
-	void run() {};
+    void run() {};
 }

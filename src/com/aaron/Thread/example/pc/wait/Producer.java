@@ -13,41 +13,40 @@ import java.util.Random;
  */
 public class Producer implements Runnable {
 
-	private List<DataCollection> queue;
-	private int length;
+    private List<DataCollection> queue;
+    private int length;
 
-	public Producer(List<DataCollection> queue, int length) {
-		this.queue = queue;
-		this.length = length;
-	}
+    public Producer(List<DataCollection> queue, int length) {
+        this.queue = queue;
+        this.length = length;
+    }
 
-	@Override
-	public void run() {
-		try {
-			while (true) {
-				if (Thread.currentThread().isInterrupted()) {
-					break;
-				}
-				Random random = new Random();
-				long temp = random.nextInt(1000);
-				System.out.println("生产者[" + Thread.currentThread().getId()
-						+ "] 生产了：" + temp);
-				DataCollection dataCollection = new DataCollection();
-				dataCollection.set(temp);
-				synchronized (queue) {
-					if (queue.size() >= length) {
-						queue.notifyAll();
-						queue.wait();
-					} else {
-						queue.add(dataCollection);
-					}
-				}
-				Thread.sleep(1000);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+    @Override
+    public void run() {
+        try {
+            while (true) {
+                if (Thread.currentThread().isInterrupted()) {
+                    break;
+                }
+                Random random = new Random();
+                long temp = random.nextInt(1000);
+                System.out.println("生产者[" + Thread.currentThread().getId() + "] 生产了：" + temp);
+                DataCollection dataCollection = new DataCollection();
+                dataCollection.set(temp);
+                synchronized (queue) {
+                    if (queue.size() >= length) {
+                        queue.notifyAll();
+                        queue.wait();
+                    } else {
+                        queue.add(dataCollection);
+                    }
+                }
+                Thread.sleep(1000);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-	}
+    }
 
 }

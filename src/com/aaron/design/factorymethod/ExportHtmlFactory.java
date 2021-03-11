@@ -10,18 +10,18 @@ package com.aaron.design.factorymethod;
  */
 public class ExportHtmlFactory implements ExportFactory {
 
-	@Override
-	public ExportFile factory(String type) {
-		if ("standard".equals(type)) {
+    @Override
+    public ExportFile factory(String type) {
+        if ("standard".equals(type)) {
 
-			return new ExportStandardHtmlFile();
+            return new ExportStandardHtmlFile();
 
-		} else if ("financial".equals(type)) {
-			return new ExportFinancialHtmlFile();
+        } else if ("financial".equals(type)) {
+            return new ExportFinancialHtmlFile();
 
-		} else {
-			throw new RuntimeException("没有找到对象");
-		}
-	}
+        } else {
+            throw new RuntimeException("没有找到对象");
+        }
+    }
 
 }

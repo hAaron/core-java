@@ -9,10 +9,10 @@ package com.aaron.design.observer;
  * @package_type com.aaron.design.observer.Observer
  */
 public interface AbstractObserver {
-	/**
-	 * 更新收到的消息
-	 * 
-	 * @param msg
-	 */
-	public void update(String msg);
+    /**
+     * 更新收到的消息
+     * 
+     * @param msg
+     */
+    public void update(String msg);
 }

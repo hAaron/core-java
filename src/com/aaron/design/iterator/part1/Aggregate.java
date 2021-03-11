@@ -9,9 +9,9 @@ package com.aaron.design.iterator.part1;
  * @package_name com.aaron.design.iterator
  */
 public interface Aggregate {
-	/**
-	 * 
-	 * @return
-	 */
-	public Iterator createIterator();
+    /**
+     * 
+     * @return
+     */
+    public Iterator createIterator();
 }

@@ -10,33 +10,33 @@ package com.aaron.Thread.stopthread.flag;
  */
 public class StopThreadMain1 {
 
-	public static void main(String[] args) {
-		MyThread myThread = new MyThread();
-		Thread thread = new Thread(myThread);
-		thread.start();
-		try {
-			Thread.sleep(1000);
-			myThread.cancel();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
+    public static void main(String[] args) {
+        MyThread myThread = new MyThread();
+        Thread thread = new Thread(myThread);
+        thread.start();
+        try {
+            Thread.sleep(1000);
+            myThread.cancel();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
 
 class MyThread implements Runnable {
 
-	private volatile boolean isCancelled = false;
+    private volatile boolean isCancelled = false;
 
-	public void run() {
-		while (!isCancelled) {
-			System.out.println("running do something");
-		}
-	}
+    public void run() {
+        while (!isCancelled) {
+            System.out.println("running do something");
+        }
+    }
 
-	public void cancel() {
-		isCancelled = true;
-		System.out.println("thread cancel");
-	}
+    public void cancel() {
+        isCancelled = true;
+        System.out.println("thread cancel");
+    }
 
 }

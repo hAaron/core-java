@@ -10,23 +10,23 @@ package com.aaron.util.jdk81;
  */
 
 public class Jdk8Test {
-	public static void main(String[] args) {
-		// Prior Java 8 :
-		// List features = Arrays.asList("Lambdas", "Default Method",
-		// "Stream API", "Date and Time API");
-		// for (String feature : features) {
-		// System.out.println(feature);
-		// }
+    public static void main(String[] args) {
+        // Prior Java 8 :
+        // List features = Arrays.asList("Lambdas", "Default Method",
+        // "Stream API", "Date and Time API");
+        // for (String feature : features) {
+        // System.out.println(feature);
+        // }
 
-		// In Java 8:
-		// List<String> features = Arrays.asList("Lambdas", "Default Method", "Stream
-		// API", "Date and Time API");
-		// features.forEach(n -> System.out.println(n));
+        // In Java 8:
+        // List<String> features = Arrays.asList("Lambdas", "Default Method", "Stream
+        // API", "Date and Time API");
+        // features.forEach(n -> System.out.println(n));
 
-		// Even better use Method reference feature of Java 8
-		// method reference is denoted by :: (double colon) operator
-		// looks similar to score resolution operator of C++
-		// System.out.println("0000000000000000000");
-		// features.forEach(System.out::println);
-	}
+        // Even better use Method reference feature of Java 8
+        // method reference is denoted by :: (double colon) operator
+        // looks similar to score resolution operator of C++
+        // System.out.println("0000000000000000000");
+        // features.forEach(System.out::println);
+    }
 }

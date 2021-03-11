@@ -14,18 +14,18 @@ package com.aaron.design.observer;
  * @package_name com.aaron.design.observer
  */
 public class TestObserver {
-	public static void main(String[] args) {
-		AbstractObserver observer1 = new RealObserver("aaa");
-		AbstractObserver observer2 = new RealObserver("bbb");
-		AbstractObserver observer3 = new RealObserver("ccc");
-		WeChatServer server = new WeChatServer();
-		server.registerObserve(observer1);
-		server.registerObserve(observer2);
-		server.registerObserve(observer3);
-		server.sendMsgByServer("hello");
+    public static void main(String[] args) {
+        AbstractObserver observer1 = new RealObserver("aaa");
+        AbstractObserver observer2 = new RealObserver("bbb");
+        AbstractObserver observer3 = new RealObserver("ccc");
+        WeChatServer server = new WeChatServer();
+        server.registerObserve(observer1);
+        server.registerObserve(observer2);
+        server.registerObserve(observer3);
+        server.sendMsgByServer("hello");
 
-		server.removeObserve(observer2);
-		server.sendMsgByServer("world");
-		
-	}
+        server.removeObserve(observer2);
+        server.sendMsgByServer("world");
+
+    }
 }

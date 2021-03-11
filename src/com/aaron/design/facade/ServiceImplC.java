@@ -1,7 +1,7 @@
 package com.aaron.design.facade;
 
 interface ServiceC {
-	void methodC();
+    void methodC();
 }
 
 /**
@@ -14,9 +14,9 @@ interface ServiceC {
  */
 public class ServiceImplC implements ServiceC {
 
-	@Override
-	public void methodC() {
-		System.out.println("####子系统C方法 methodC is start#####");
-	}
+    @Override
+    public void methodC() {
+        System.out.println("####子系统C方法 methodC is start#####");
+    }
 
 }

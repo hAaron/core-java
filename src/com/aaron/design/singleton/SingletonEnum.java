@@ -13,25 +13,25 @@ package com.aaron.design.singleton;
  */
 class SingletonResource {
 
-	SingletonResource() {
-		System.out.println("懒汉式--枚举");
-	}
+    SingletonResource() {
+        System.out.println("懒汉式--枚举");
+    }
 
 }
 
 public enum SingletonEnum {
 
-	INSTANCE;
+    INSTANCE;
 
-	private SingletonResource resource;
+    private SingletonResource resource;
 
-	SingletonEnum() {
-		resource = new SingletonResource();
+    SingletonEnum() {
+        resource = new SingletonResource();
 
-	}
+    }
 
-	public SingletonResource getInstance() {
-		return resource;
-	}
+    public SingletonResource getInstance() {
+        return resource;
+    }
 
 }

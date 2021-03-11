@@ -9,9 +9,9 @@ package com.aaron.design.bridge;
  * @package_name com.aaron.design.bridge
  */
 public class Bus extends AbstractCar {
-	@Override
-	void run() {
-		super.run();
-		System.out.print("公交车-");
-	}
+    @Override
+    void run() {
+        super.run();
+        System.out.print("公交车-");
+    }
 }

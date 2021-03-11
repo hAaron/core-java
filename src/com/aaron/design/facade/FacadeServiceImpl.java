@@ -10,26 +10,26 @@ package com.aaron.design.facade;
  */
 public class FacadeServiceImpl {
 
-	ServiceImplA serviceImplA;
-	ServiceImplB serviceImplB;
-	ServiceImplC serviceImplC;
+    ServiceImplA serviceImplA;
+    ServiceImplB serviceImplB;
+    ServiceImplC serviceImplC;
 
-	public FacadeServiceImpl() {
-		serviceImplA = new ServiceImplA();
-		serviceImplB = new ServiceImplB();
-		serviceImplC = new ServiceImplC();
-	}
+    public FacadeServiceImpl() {
+        serviceImplA = new ServiceImplA();
+        serviceImplB = new ServiceImplB();
+        serviceImplC = new ServiceImplC();
+    }
 
-	public void methodA() {
-		serviceImplA.methodA();
-	}
+    public void methodA() {
+        serviceImplA.methodA();
+    }
 
-	public void methodB() {
-		serviceImplB.methodB();
-	}
+    public void methodB() {
+        serviceImplB.methodB();
+    }
 
-	public void methodC() {
-		serviceImplC.methodC();
-	}
+    public void methodC() {
+        serviceImplC.methodC();
+    }
 
 }

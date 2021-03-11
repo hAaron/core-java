@@ -10,35 +10,34 @@ package com.aaron.Thread.lock.lock;
  */
 class MyAccount {
 
-	private String id; // 账号
-	private int cash; // 账户余额
+    private String id; // 账号
+    private int cash; // 账户余额
 
-	public MyAccount(String id, int cash) {
-		this.id = id;
-		this.cash = cash;
-	}
+    public MyAccount(String id, int cash) {
+        this.id = id;
+        this.cash = cash;
+    }
 
-	public MyAccount() {
-	}
+    public MyAccount() {}
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public int getCash() {
-		return cash;
-	}
+    public int getCash() {
+        return cash;
+    }
 
-	public void setCash(int cash) {
-		this.cash = cash;
-	}
+    public void setCash(int cash) {
+        this.cash = cash;
+    }
 
-	@Override
-	public String toString() {
-		return "MyAccount [账号id=" + id + ", 余额cash=" + cash + "]";
-	}
+    @Override
+    public String toString() {
+        return "MyAccount [账号id=" + id + ", 余额cash=" + cash + "]";
+    }
 }

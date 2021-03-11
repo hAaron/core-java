@@ -10,10 +10,10 @@ package com.aaron.design.adapter;
  */
 public class AdapterGermanyElectricityClass extends ChinaElectricityImpl implements IGermanyElectricity {
 
-	@Override
-	public void use110v() {
-		System.out.println("类适配器：此时在德国的电压标准为110v，需要一个适配器来适应当地的电压：");
-		use220v();
-	}
+    @Override
+    public void use110v() {
+        System.out.println("类适配器：此时在德国的电压标准为110v，需要一个适配器来适应当地的电压：");
+        use220v();
+    }
 
 }

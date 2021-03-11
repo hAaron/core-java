@@ -10,16 +10,16 @@ package com.aaron.design.builder;
  */
 public class Director {
 
-	private Builder builder;
+    private Builder builder;
 
-	Director(Builder builder) {
-		this.builder = builder;
-	}
+    Director(Builder builder) {
+        this.builder = builder;
+    }
 
-	public void construct() {
-		builder.buildPartA();
-		builder.buildPartB();
-		builder.buildPartC();
-	}
+    public void construct() {
+        builder.buildPartA();
+        builder.buildPartB();
+        builder.buildPartC();
+    }
 
 }

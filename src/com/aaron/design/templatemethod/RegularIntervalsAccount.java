@@ -10,14 +10,14 @@ package com.aaron.design.templatemethod;
  */
 public class RegularIntervalsAccount extends AbstractAccount {
 
-	@Override
-	protected String doCalculateAccountType() {
-		return "定期账号";
-	}
+    @Override
+    protected String doCalculateAccountType() {
+        return "定期账号";
+    }
 
-	@Override
-	protected double doCalculateInterestRate() {
-		return 0.06;
-	}
+    @Override
+    protected double doCalculateInterestRate() {
+        return 0.06;
+    }
 
 }

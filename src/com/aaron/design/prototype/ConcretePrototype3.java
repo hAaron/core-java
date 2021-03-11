@@ -1,11 +1,6 @@
 package com.aaron.design.prototype;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 
 /**
  * 深复制
@@ -17,45 +12,45 @@ import java.io.Serializable;
  */
 public class ConcretePrototype3 implements Prototype, Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1036439683614905961L;
-	/**
-	 * 对象属性
-	 */
-	private String name;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -1036439683614905961L;
+    /**
+     * 对象属性
+     */
+    private String name;
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Override
-	public Prototype cloneMethod() {
-		// 将对象写入流中
-		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-		ObjectOutputStream objectOutputStream = null;
-		try {
-			objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-			objectOutputStream.writeObject(this);
+    @Override
+    public Prototype cloneMethod() {
+        // 将对象写入流中
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        ObjectOutputStream objectOutputStream = null;
+        try {
+            objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+            objectOutputStream.writeObject(this);
 
-			// 将对象从流中取出来
-			ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-			ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+            // 将对象从流中取出来
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+            ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
 
-			return (Prototype) objectInputStream.readObject();
-		} catch (IOException | ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+            return (Prototype)objectInputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
-	@Override
-	public String toString() {
-		return "ConcretePrototype3 [name=" + name + "]";
-	}
+    @Override
+    public String toString() {
+        return "ConcretePrototype3 [name=" + name + "]";
+    }
 }

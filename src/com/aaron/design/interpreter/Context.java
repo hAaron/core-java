@@ -1,7 +1,7 @@
 package com.aaron.design.interpreter;
 
 /**
- *  A Context to record variable value 
+ * A Context to record variable value
  */
 import java.util.HashMap;
 import java.util.Map;
@@ -15,17 +15,17 @@ import java.util.Map;
  * @package_name com.aaron.design.interpreter
  */
 public class Context {
-	private Map<Variable, Boolean> map = new HashMap<Variable, Boolean>();
+    private Map<Variable, Boolean> map = new HashMap<Variable, Boolean>();
 
-	public void assign(Variable var, boolean value) {
-		map.put(var, new Boolean(value));
-	}
+    public void assign(Variable var, boolean value) {
+        map.put(var, new Boolean(value));
+    }
 
-	public boolean lookup(Variable var) throws IllegalArgumentException {
-		Boolean value = map.get(var);
-		if (value == null) {
-			throw new IllegalArgumentException();
-		}
-		return value.booleanValue();
-	}
+    public boolean lookup(Variable var) throws IllegalArgumentException {
+        Boolean value = map.get(var);
+        if (value == null) {
+            throw new IllegalArgumentException();
+        }
+        return value.booleanValue();
+    }
 }

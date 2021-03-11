@@ -10,16 +10,16 @@ package com.aaron.design.singleton;
  */
 public class SingletonInnerClass {
 
-	private SingletonInnerClass() {
-		System.out.println("懒汉式--静态内部类####构造方法私有化，提供公共静态方法被外部访问");
-	}
+    private SingletonInnerClass() {
+        System.out.println("懒汉式--静态内部类####构造方法私有化，提供公共静态方法被外部访问");
+    }
 
-	private static class InnerSingleton {
-		private final static SingletonInnerClass instance = new SingletonInnerClass();
-	}
-	
-	public static SingletonInnerClass getInstance(){
-		return InnerSingleton.instance;
-	}
+    private static class InnerSingleton {
+        private final static SingletonInnerClass instance = new SingletonInnerClass();
+    }
+
+    public static SingletonInnerClass getInstance() {
+        return InnerSingleton.instance;
+    }
 
 }

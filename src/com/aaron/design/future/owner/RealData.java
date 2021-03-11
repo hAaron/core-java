@@ -9,25 +9,25 @@ package com.aaron.design.future.owner;
  * @package_type com.aaron.design.future.owner.RealData
  */
 public class RealData implements Data {
-	protected final String result;
+    protected final String result;
 
-	public RealData(String para) {
-		StringBuffer buffer = new StringBuffer();
-		System.out.println("RealData 正在构造真实数据。。。");
-		for (int i = 0; i < 10; i++) {
-			buffer.append(para);
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-		System.out.println("RealData 真实数据构造完成。。。");
-		result = buffer.toString();
-	}
+    public RealData(String para) {
+        StringBuffer buffer = new StringBuffer();
+        System.out.println("RealData 正在构造真实数据。。。");
+        for (int i = 0; i < 10; i++) {
+            buffer.append(para);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("RealData 真实数据构造完成。。。");
+        result = buffer.toString();
+    }
 
-	@Override
-	public String getResult() {
-		return result;
-	}
+    @Override
+    public String getResult() {
+        return result;
+    }
 }

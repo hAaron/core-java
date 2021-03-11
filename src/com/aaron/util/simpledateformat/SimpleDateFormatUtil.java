@@ -12,13 +12,13 @@ import java.util.Date;
  * @package_type com.aaron.util.simpledateformat.SimpleDateFormatUtil
  */
 public class SimpleDateFormatUtil {
-	public static ThreadLocal<SimpleDateFormat> threadLocal = new ThreadLocal<SimpleDateFormat>();
+    public static ThreadLocal<SimpleDateFormat> threadLocal = new ThreadLocal<SimpleDateFormat>();
 
-	public static void main(String[] args) {
-		if (threadLocal.get() == null) {
-			threadLocal.set(new SimpleDateFormat("yyyy-MM-dd"));
-		}
-		System.out.println(threadLocal.get().format(new Date()));
+    public static void main(String[] args) {
+        if (threadLocal.get() == null) {
+            threadLocal.set(new SimpleDateFormat("yyyy-MM-dd"));
+        }
+        System.out.println(threadLocal.get().format(new Date()));
 
-	}
+    }
 }

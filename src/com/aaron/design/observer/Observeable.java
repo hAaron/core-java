@@ -10,10 +10,10 @@ package com.aaron.design.observer;
  */
 public interface Observeable {
 
-	void registerObserve(AbstractObserver observer);
+    void registerObserve(AbstractObserver observer);
 
-	void removeObserve(AbstractObserver observer);
+    void removeObserve(AbstractObserver observer);
 
-	void noticefyObserve();
+    void noticefyObserve();
 
 }

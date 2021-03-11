@@ -14,43 +14,43 @@ import java.net.Socket;
  */
 public class CheckIpAndPortConnect {
 
-	public static void main(String[] args) {
-		String host = "192.168.128.129";
-		int port = 9100;
-		String host1 = "192.168.128.129";
-		int port1 = 9200;
-		String host2 = "192.168.128.129";
-		int port2 = 9300;
-		String host3 = "192.168.128.129";
-		int port3 = 9400;
-		System.out.println(isHostConnectable(host, port));
-		System.out.println(isHostConnectable(host1, port1));
-		System.out.println(isHostConnectable(host2, port2));
-		System.out.println(isHostConnectable(host3, port3));
-	}
+    public static void main(String[] args) {
+        String host = "192.168.128.129";
+        int port = 9100;
+        String host1 = "192.168.128.129";
+        int port1 = 9200;
+        String host2 = "192.168.128.129";
+        int port2 = 9300;
+        String host3 = "192.168.128.129";
+        int port3 = 9400;
+        System.out.println(isHostConnectable(host, port));
+        System.out.println(isHostConnectable(host1, port1));
+        System.out.println(isHostConnectable(host2, port2));
+        System.out.println(isHostConnectable(host3, port3));
+    }
 
-	/**
-	 * 单个host:port
-	 * 
-	 * @param host
-	 * @param port
-	 * @return
-	 */
-	public static boolean isHostConnectable(String host, int port) {
-		Socket socket = new Socket();
-		try {
-			socket.connect(new InetSocketAddress(host, port));
-		} catch (IOException e) {
-			e.printStackTrace();
-			return false;
-		} finally {
-			try {
-				socket.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return true;
-	}
+    /**
+     * 单个host:port
+     * 
+     * @param host
+     * @param port
+     * @return
+     */
+    public static boolean isHostConnectable(String host, int port) {
+        Socket socket = new Socket();
+        try {
+            socket.connect(new InetSocketAddress(host, port));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            try {
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return true;
+    }
 
 }

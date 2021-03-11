@@ -10,9 +10,9 @@ package com.aaron.design.adapter;
  */
 public class ChinaElectricityImpl implements IChinaElectricity {
 
-	@Override
-	public void use220v() {
-		System.out.println("使用220v电压");
-	}
+    @Override
+    public void use220v() {
+        System.out.println("使用220v电压");
+    }
 
 }

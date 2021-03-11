@@ -10,9 +10,9 @@ package com.aaron.design.adapter;
  */
 public interface IGermanyElectricity {
 
-	/**
-	 * 使用110v电压
-	 */
-	public void use110v();
+    /**
+     * 使用110v电压
+     */
+    public void use110v();
 
 }

@@ -10,12 +10,12 @@ package com.aaron.design.factory.common;
  */
 public class Test {
 
-	public static void main(String[] args) {
-		Factory myFactory = new Factory();
-		ISender smSender = myFactory.createSender("sms");
-		smSender.send();
+    public static void main(String[] args) {
+        Factory myFactory = new Factory();
+        ISender smSender = myFactory.createSender("sms");
+        smSender.send();
 
-		ISender emailSender = myFactory.createSender("email");
-		emailSender.send();
-	}
+        ISender emailSender = myFactory.createSender("email");
+        emailSender.send();
+    }
 }

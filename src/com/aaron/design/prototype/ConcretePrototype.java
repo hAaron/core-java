@@ -10,33 +10,33 @@ package com.aaron.design.prototype;
  */
 public class ConcretePrototype implements Prototype {
 
-	/**
-	 * 对象属性
-	 */
-	private String name;
+    /**
+     * 对象属性
+     */
+    private String name;
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	/**
-	 * 实现接口的clone方法，返回新创建的对象
-	 */
-	@Override
-	public Prototype cloneMethod() {
-		// 新创建的对象
-		ConcretePrototype prototype = new ConcretePrototype();
-		prototype.setName(this.getName());
-		return prototype;
-	}
+    /**
+     * 实现接口的clone方法，返回新创建的对象
+     */
+    @Override
+    public Prototype cloneMethod() {
+        // 新创建的对象
+        ConcretePrototype prototype = new ConcretePrototype();
+        prototype.setName(this.getName());
+        return prototype;
+    }
 
-	@Override
-	public String toString() {
-		return "ConcretePrototype [name=" + name + "]";
-	}
+    @Override
+    public String toString() {
+        return "ConcretePrototype [name=" + name + "]";
+    }
 
 }

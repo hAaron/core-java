@@ -16,27 +16,27 @@ import com.aaron.util.jdbc.DBConfig;
  */
 public class WriteAndReadMysql {
 
-	public static void main(String[] args) {
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
-		try {
-			String sql = "insert into tb_name(name) values('write4');";
-			// String sqlRead = "select * from tb_name;";
-			connection = DBConfig.getConnection();
-			preparedStatement = connection.prepareStatement(sql);
-			System.out.println(preparedStatement.execute());
-			connection.setAutoCommit(false);
-			connection.commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				DBConfig.closeConnection(connection, preparedStatement, resultSet);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
+    public static void main(String[] args) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            String sql = "insert into tb_name(name) values('write4');";
+            // String sqlRead = "select * from tb_name;";
+            connection = DBConfig.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            System.out.println(preparedStatement.execute());
+            connection.setAutoCommit(false);
+            connection.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                DBConfig.closeConnection(connection, preparedStatement, resultSet);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 }

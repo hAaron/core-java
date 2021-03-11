@@ -9,8 +9,7 @@ package com.aaron.design.bridge;
  * @package_name com.aaron.design.bridge
  */
 public abstract class AbstractPeople {
-	AbstractRoad road;
+    AbstractRoad road;
 
-	void run() {
-	}
+    void run() {}
 }

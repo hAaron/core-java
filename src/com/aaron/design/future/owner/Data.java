@@ -9,5 +9,5 @@ package com.aaron.design.future.owner;
  * @package_type com.aaron.design.future.owner.Data
  */
 public interface Data {
-	public String getResult();
+    public String getResult();
 }

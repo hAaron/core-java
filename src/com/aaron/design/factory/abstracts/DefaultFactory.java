@@ -11,16 +11,16 @@ import com.aaron.design.factory.common.SmsSender;
  * @version 1.0
  * @package_name com.aaron.design.factory.abstracts
  */
-public class DefaultFactory implements AbstractFactory{
+public class DefaultFactory implements AbstractFactory {
 
-	@Override
-	public void sendSMS() {
-		new SmsSender().send();
-	}
+    @Override
+    public void sendSMS() {
+        new SmsSender().send();
+    }
 
-	@Override
-	public void sendMail() {
-		new MailSender().send();
-	}
+    @Override
+    public void sendMail() {
+        new MailSender().send();
+    }
 
 }

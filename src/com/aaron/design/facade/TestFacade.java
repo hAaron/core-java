@@ -15,10 +15,10 @@ package com.aaron.design.facade;
  * @package_name com.aaron.design.facade
  */
 public class TestFacade {
-	public static void main(String[] args) {
-		FacadeServiceImpl facadeServiceImpl = new FacadeServiceImpl();
-		facadeServiceImpl.methodA();
-		facadeServiceImpl.methodB();
-		facadeServiceImpl.methodC();
-	}
+    public static void main(String[] args) {
+        FacadeServiceImpl facadeServiceImpl = new FacadeServiceImpl();
+        facadeServiceImpl.methodA();
+        facadeServiceImpl.methodB();
+        facadeServiceImpl.methodC();
+    }
 }

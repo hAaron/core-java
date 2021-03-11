@@ -22,91 +22,91 @@ import java.util.concurrent.Executors;
 // LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。
 public class BlockQueueMain {
 
-	/**
-	 * 定义一个容器
-	 * 
-	 * @author Aaron
-	 * @date 2018年4月21日
-	 * @version 1.0
-	 * @package_type com.aaron.Thread.method.cotion
-	 */
-	static class Container {
-		BlockingQueue<String> queue = new ArrayBlockingQueue<>(5);
+    /**
+     * 定义一个容器
+     * 
+     * @author Aaron
+     * @date 2018年4月21日
+     * @version 1.0
+     * @package_type com.aaron.Thread.method.cotion
+     */
+    static class Container {
+        BlockingQueue<String> queue = new ArrayBlockingQueue<>(5);
 
-		public void produce() {
-			try {
-				// java.lang.IllegalStateException: Queue full
-				// ArrayBlockingQueue 定长的queue用add放入抛出的异常
-				// 推荐使用put
-				queue.put("add..");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+        public void produce() {
+            try {
+                // java.lang.IllegalStateException: Queue full
+                // ArrayBlockingQueue 定长的queue用add放入抛出的异常
+                // 推荐使用put
+                queue.put("add..");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
-		public String consume() {
-			try {
-				return queue.poll();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return null;
-		}
-	}
+        public String consume() {
+            try {
+                return queue.poll();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+    }
 
-	/**
-	 * 生产消费
-	 */
-	public static void operate() {
+    /**
+     * 生产消费
+     */
+    public static void operate() {
 
-		final Container container = new Container();
+        final Container container = new Container();
 
-		class Producer implements Runnable {
+        class Producer implements Runnable {
 
-			@Override
-			public void run() {
-				while (true) {
-					System.out.print("开始produce。。。。。");
-					container.produce();
-					System.out.println("结束produce。。。。。");
-					try {
-						Thread.sleep(1000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-			}
+            @Override
+            public void run() {
+                while (true) {
+                    System.out.print("开始produce。。。。。");
+                    container.produce();
+                    System.out.println("结束produce。。。。。");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
 
-		}
+        }
 
-		class Consumer implements Runnable {
+        class Consumer implements Runnable {
 
-			@Override
-			public void run() {
-				while (true) {
-					System.out.print("开始consume。。。。。");
-					container.consume();
-					System.out.println("结束consume。。。。。");
-					try {
-						Thread.sleep(1000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-			}
+            @Override
+            public void run() {
+                while (true) {
+                    System.out.print("开始consume。。。。。");
+                    container.consume();
+                    System.out.println("结束consume。。。。。");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
 
-		}
+        }
 
-		ExecutorService executor = Executors.newCachedThreadPool();
-		executor.submit(new Producer());
-		executor.submit(new Producer());
-		executor.submit(new Consumer());
-		executor.shutdown();
+        ExecutorService executor = Executors.newCachedThreadPool();
+        executor.submit(new Producer());
+        executor.submit(new Producer());
+        executor.submit(new Consumer());
+        executor.shutdown();
 
-	}
+    }
 
-	public static void main(String[] args) {
-		BlockQueueMain.operate();
-	}
+    public static void main(String[] args) {
+        BlockQueueMain.operate();
+    }
 
 }

@@ -15,39 +15,38 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Producer implements Runnable {
 
-	private volatile boolean isRunning = true;
-	private BlockingQueue<DataCollection> queue;// 内存缓冲区
-	private static AtomicInteger count = new AtomicInteger();// 总数，院子操作
+    private volatile boolean isRunning = true;
+    private BlockingQueue<DataCollection> queue;// 内存缓冲区
+    private static AtomicInteger count = new AtomicInteger();// 总数，院子操作
 
-	private static final int SLEEPTIME = 1000;
+    private static final int SLEEPTIME = 1000;
 
-	Producer(BlockingQueue<DataCollection> queue) {
-		this.queue = queue;
-	}
+    Producer(BlockingQueue<DataCollection> queue) {
+        this.queue = queue;
+    }
 
-	@Override
-	public void run() {
-		DataCollection data = null;
-		Random random = new Random();
-		System.out.println("start producting id:"
-				+ Thread.currentThread().getId());
-		try {
-			while (isRunning) {
-				Thread.sleep(SLEEPTIME);
-				data = new DataCollection(count.incrementAndGet());
-				System.out.println(data + " 加入队列");
-				if (!queue.offer(data, 2, TimeUnit.SECONDS)) {
-					System.err.println(" 加入队列失败");
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			Thread.currentThread().interrupt();
-		}
+    @Override
+    public void run() {
+        DataCollection data = null;
+        Random random = new Random();
+        System.out.println("start producting id:" + Thread.currentThread().getId());
+        try {
+            while (isRunning) {
+                Thread.sleep(SLEEPTIME);
+                data = new DataCollection(count.incrementAndGet());
+                System.out.println(data + " 加入队列");
+                if (!queue.offer(data, 2, TimeUnit.SECONDS)) {
+                    System.err.println(" 加入队列失败");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Thread.currentThread().interrupt();
+        }
 
-	}
+    }
 
-	public void stop() {
-		isRunning = false;
-	}
+    public void stop() {
+        isRunning = false;
+    }
 }

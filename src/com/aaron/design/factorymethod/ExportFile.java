@@ -9,11 +9,12 @@ package com.aaron.design.factorymethod;
  * @package_name com.aaron.design.factorymethod
  */
 public interface ExportFile {
-	
-	/**
-	 * 导出
-	 * @param data
-	 * @return
-	 */
-	public boolean export(String data);
+
+    /**
+     * 导出
+     * 
+     * @param data
+     * @return
+     */
+    public boolean export(String data);
 }

@@ -14,13 +14,13 @@ import java.lang.annotation.Target;
  * @package_type com.aaron.spring.aop.PointCut
  */
 @Retention(RetentionPolicy.RUNTIME) // 保留时间长短
-@Target(value = { ElementType.METHOD }) // 使用范围 方法
+@Target(value = {ElementType.METHOD}) // 使用范围 方法
 public @interface PointCut {
 
-	/**
-	 * 全类名_方法名
-	 *
-	 * @return
-	 */
-	String value();
+    /**
+     * 全类名_方法名
+     *
+     * @return
+     */
+    String value();
 }

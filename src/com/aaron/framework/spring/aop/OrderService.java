@@ -12,19 +12,19 @@ import java.util.List;
  */
 public class OrderService {
 
-	public void deleteOrderById(String orderId) {
+    public void deleteOrderById(String orderId) {
 
-		System.out.println("delete order by orderId, orderId: " + orderId);
-	}
+        System.out.println("delete order by orderId, orderId: " + orderId);
+    }
 
-	public Object queryOrderByUserName(String userName) {
-		Object object = null;// query
-		System.out.println("find order by userName, userName: " + userName);
-		return object;
-	}
+    public Object queryOrderByUserName(String userName) {
+        Object object = null;// query
+        System.out.println("find order by userName, userName: " + userName);
+        return object;
+    }
 
-	public int deleteOrderByIds(List<String> orderIds) {
-		System.out.println("delete order by orderIds, orderIds: " + orderIds);
-		return 0;
-	}
+    public int deleteOrderByIds(List<String> orderIds) {
+        System.out.println("delete order by orderIds, orderIds: " + orderIds);
+        return 0;
+    }
 }

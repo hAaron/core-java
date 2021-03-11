@@ -10,7 +10,8 @@ package com.aaron.design.factory.abstracts;
  */
 public interface AbstractFactory {
 
-	void sendSMS();
-	void sendMail();
-	
+    void sendSMS();
+
+    void sendMail();
+
 }

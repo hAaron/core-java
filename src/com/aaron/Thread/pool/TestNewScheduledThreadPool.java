@@ -13,36 +13,36 @@ import java.util.concurrent.TimeUnit;
  * @package_name com.aaron.Thread.pool
  */
 class newScheduledThreadPoolThread extends Thread {
-	private String name;
+    private String name;
 
-	newScheduledThreadPoolThread(String name) {
-		this.name = name;
-	}
+    newScheduledThreadPoolThread(String name) {
+        this.name = name;
+    }
 
-	@Override
-	public void run() {
-		System.out.println(name + " 正在执行...");
-	}
+    @Override
+    public void run() {
+        System.out.println(name + " 正在执行...");
+    }
 }
 
 public class TestNewScheduledThreadPool {
-	public static void main(String[] args) {
-		// 创建一个大小无限的线程池。此线程池支持定时以及周期性执行任务的需求。
-		ScheduledExecutorService pool = Executors.newScheduledThreadPool(2);
-		// 创建实现了Runnable接口对象，Thread对象当然也实现了Runnable接口
-		newScheduledThreadPoolThread t1 = new newScheduledThreadPoolThread("A");
-		newScheduledThreadPoolThread t2 = new newScheduledThreadPoolThread("B");
-		newScheduledThreadPoolThread t3 = new newScheduledThreadPoolThread("C");
-		newScheduledThreadPoolThread t4 = new newScheduledThreadPoolThread("E");
-		newScheduledThreadPoolThread t5 = new newScheduledThreadPoolThread("D");
-		// 将线程放入池中进行执行
-		pool.execute(t1);
-		pool.execute(t2);
-		pool.execute(t3);
-		// 使用延迟执行风格的方法
-		pool.schedule(t4, 10, TimeUnit.MILLISECONDS);
-		pool.schedule(t5, 10, TimeUnit.MILLISECONDS);
-		// 关闭线程池
-		pool.shutdown();
-	}
+    public static void main(String[] args) {
+        // 创建一个大小无限的线程池。此线程池支持定时以及周期性执行任务的需求。
+        ScheduledExecutorService pool = Executors.newScheduledThreadPool(2);
+        // 创建实现了Runnable接口对象，Thread对象当然也实现了Runnable接口
+        newScheduledThreadPoolThread t1 = new newScheduledThreadPoolThread("A");
+        newScheduledThreadPoolThread t2 = new newScheduledThreadPoolThread("B");
+        newScheduledThreadPoolThread t3 = new newScheduledThreadPoolThread("C");
+        newScheduledThreadPoolThread t4 = new newScheduledThreadPoolThread("E");
+        newScheduledThreadPoolThread t5 = new newScheduledThreadPoolThread("D");
+        // 将线程放入池中进行执行
+        pool.execute(t1);
+        pool.execute(t2);
+        pool.execute(t3);
+        // 使用延迟执行风格的方法
+        pool.schedule(t4, 10, TimeUnit.MILLISECONDS);
+        pool.schedule(t5, 10, TimeUnit.MILLISECONDS);
+        // 关闭线程池
+        pool.shutdown();
+    }
 }

@@ -9,7 +9,7 @@ package com.aaron.design.iterator.part2;
  * @package_name com.aaron.test
  */
 interface Iterator {
-	public Object next();
+    public Object next();
 
-	public boolean hasNext();
+    public boolean hasNext();
 }

@@ -8,11 +8,11 @@ package com.aaron.design.builder;
  * @package_name com.aaron.design.builder
  */
 public interface Builder {
-	void buildPartA();
+    void buildPartA();
 
-	void buildPartB();
+    void buildPartB();
 
-	void buildPartC();
+    void buildPartC();
 
-	Product getResult();
+    Product getResult();
 }

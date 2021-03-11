@@ -10,24 +10,24 @@ package com.aaron.design.proxy.dynamic;
  */
 public class CalculatorImpl implements Calculator {
 
-	@Override
-	public int add(int i, int j) {
-		return i + j;
-	}
+    @Override
+    public int add(int i, int j) {
+        return i + j;
+    }
 
-	@Override
-	public int sub(int i, int j) {
-		return i - j;
-	}
+    @Override
+    public int sub(int i, int j) {
+        return i - j;
+    }
 
-	@Override
-	public int mul(int i, int j) {
-		return i * j;
-	}
+    @Override
+    public int mul(int i, int j) {
+        return i * j;
+    }
 
-	@Override
-	public double div(int i, int j) {
-		return i / j;
-	}
+    @Override
+    public double div(int i, int j) {
+        return i / j;
+    }
 
 }

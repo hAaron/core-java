@@ -18,84 +18,84 @@ import java.util.Stack;
  */
 public class QueryBinaryTreeByNonRecursive {
 
-	/**
-	 * 前序遍历
-	 * 
-	 * @param root
-	 */
-	public static void preOrderNonRecursive(BinaryTreeNode<String> root) {
+    /**
+     * 前序遍历
+     * 
+     * @param root
+     */
+    public static void preOrderNonRecursive(BinaryTreeNode<String> root) {
 
-		Stack<BinaryTreeNode<String>> stack = new Stack<BinaryTreeNode<String>>();
-		while (true) {
-			while (root != null) {
-				System.out.print(root.getData() + " ");
-				stack.push(root);
-				root = root.getLeft();
-			}
-			if (stack.isEmpty()) {
-				break;
-			}
-			root = stack.pop();
-			root = root.getRight();
-		}
+        Stack<BinaryTreeNode<String>> stack = new Stack<BinaryTreeNode<String>>();
+        while (true) {
+            while (root != null) {
+                System.out.print(root.getData() + " ");
+                stack.push(root);
+                root = root.getLeft();
+            }
+            if (stack.isEmpty()) {
+                break;
+            }
+            root = stack.pop();
+            root = root.getRight();
+        }
 
-	}
+    }
 
-	/**
-	 * 中序遍历
-	 * 
-	 * @param root
-	 */
-	public static void inOrderNonRecursive(BinaryTreeNode<String> root) {
+    /**
+     * 中序遍历
+     * 
+     * @param root
+     */
+    public static void inOrderNonRecursive(BinaryTreeNode<String> root) {
 
-		Stack<BinaryTreeNode<String>> stack = new Stack<BinaryTreeNode<String>>();
-		while (true) {
-			while (root != null) {
-				stack.push(root);
-				root = root.getLeft();
-			}
-			if (stack.isEmpty()) {
-				break;
-			}
-			root = stack.pop();
-			System.out.print(root.getData() + " ");
-			root = root.getRight();
-		}
-	}
+        Stack<BinaryTreeNode<String>> stack = new Stack<BinaryTreeNode<String>>();
+        while (true) {
+            while (root != null) {
+                stack.push(root);
+                root = root.getLeft();
+            }
+            if (stack.isEmpty()) {
+                break;
+            }
+            root = stack.pop();
+            System.out.print(root.getData() + " ");
+            root = root.getRight();
+        }
+    }
 
-	/**
-	 * 后序遍历
-	 * 
-	 * @param root
-	 */
-	public static void afterOrderNonRecursive(BinaryTreeNode<String> root) {
-		Stack<BinaryTreeNode<String>> stack = new Stack<BinaryTreeNode<String>>();
-		while (true) {
-			if (root != null) {
-				stack.push(root);
-				root = root.getLeft();
-			} else {
-				if (stack.isEmpty())
-					return;
+    /**
+     * 后序遍历
+     * 
+     * @param root
+     */
+    public static void afterOrderNonRecursive(BinaryTreeNode<String> root) {
+        Stack<BinaryTreeNode<String>> stack = new Stack<BinaryTreeNode<String>>();
+        while (true) {
+            if (root != null) {
+                stack.push(root);
+                root = root.getLeft();
+            } else {
+                if (stack.isEmpty())
+                    return;
 
-				if (null == stack.lastElement().getRight()) {
-					root = stack.pop();
-					System.out.print(root.getData() + " ");
-					while (root == stack.lastElement().getRight()) {
-						System.out.print(stack.lastElement().getData() + " ");
-						root = stack.pop();
-						if (stack.isEmpty()) {
-							break;
-						}
-					}
-				}
+                if (null == stack.lastElement().getRight()) {
+                    root = stack.pop();
+                    System.out.print(root.getData() + " ");
+                    while (root == stack.lastElement().getRight()) {
+                        System.out.print(stack.lastElement().getData() + " ");
+                        root = stack.pop();
+                        if (stack.isEmpty()) {
+                            break;
+                        }
+                    }
+                }
 
-				if (!stack.isEmpty())
-					root = stack.lastElement().getRight();
-				else
-					root = null;
-			}
-		}
-	}
+                if (!stack.isEmpty())
+                    root = stack.lastElement().getRight();
+                else
+                    root = null;
+            }
+        }
+    }
 
 }

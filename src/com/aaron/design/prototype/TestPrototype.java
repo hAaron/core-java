@@ -16,23 +16,23 @@ package com.aaron.design.prototype;
  */
 public class TestPrototype {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		ConcretePrototype prototypeByOwnClone = new ConcretePrototype();
-		prototypeByOwnClone.setName("prototypeByOwnClone");
-		ConcretePrototype newPrototype1 = (ConcretePrototype) prototypeByOwnClone.cloneMethod();
-		System.out.println(newPrototype1);
+        ConcretePrototype prototypeByOwnClone = new ConcretePrototype();
+        prototypeByOwnClone.setName("prototypeByOwnClone");
+        ConcretePrototype newPrototype1 = (ConcretePrototype)prototypeByOwnClone.cloneMethod();
+        System.out.println(newPrototype1);
 
-		System.out.println("........................");
-		ConcretePrototype2 prototypeByCloneable = new ConcretePrototype2();
-		prototypeByCloneable.setName("prototypeByCloneable");
-		ConcretePrototype2 newPrototype2 = (ConcretePrototype2) prototypeByCloneable.cloneMethod();
-		System.out.println(newPrototype2);
+        System.out.println("........................");
+        ConcretePrototype2 prototypeByCloneable = new ConcretePrototype2();
+        prototypeByCloneable.setName("prototypeByCloneable");
+        ConcretePrototype2 newPrototype2 = (ConcretePrototype2)prototypeByCloneable.cloneMethod();
+        System.out.println(newPrototype2);
 
-		System.out.println("........................");
-		ConcretePrototype3 prototypeBySerializable = new ConcretePrototype3();
-		prototypeBySerializable.setName("prototypeBySerializable");
-		ConcretePrototype3 newPrototype3 = (ConcretePrototype3) prototypeBySerializable.cloneMethod();
-		System.out.println(newPrototype3);
-	}
+        System.out.println("........................");
+        ConcretePrototype3 prototypeBySerializable = new ConcretePrototype3();
+        prototypeBySerializable.setName("prototypeBySerializable");
+        ConcretePrototype3 newPrototype3 = (ConcretePrototype3)prototypeBySerializable.cloneMethod();
+        System.out.println(newPrototype3);
+    }
 }

@@ -10,14 +10,14 @@ package com.aaron.design.singleton;
  */
 public class SingletonHunger {
 
-	private static SingletonHunger instance = new SingletonHunger();
+    private static SingletonHunger instance = new SingletonHunger();
 
-	private SingletonHunger() {
-		System.out.println("饿汉式####构造方法私有化，提供公共静态方法被外部访问");
-	}
+    private SingletonHunger() {
+        System.out.println("饿汉式####构造方法私有化，提供公共静态方法被外部访问");
+    }
 
-	public static SingletonHunger getInstance() {
-		return instance;
-	}
+    public static SingletonHunger getInstance() {
+        return instance;
+    }
 
 }

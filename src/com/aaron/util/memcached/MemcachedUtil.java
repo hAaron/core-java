@@ -9,9 +9,9 @@ package com.aaron.util.memcached;
  * @package_type com.aaron.util.memcached.MemcachedUtil
  */
 public class MemcachedUtil {
-	public static void main(String[] args) {
-		System.out.println("memcached");
+    public static void main(String[] args) {
+        System.out.println("memcached");
 
-	}
+    }
 
 }

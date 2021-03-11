@@ -9,8 +9,8 @@ package com.aaron.design.visitor;
  * @package_name com.aaron.design.visitor
  */
 public abstract class Node {
-	/**
-	 * 接受操作
-	 */
-	public abstract void accept(Visitor visitor);
+    /**
+     * 接受操作
+     */
+    public abstract void accept(Visitor visitor);
 }

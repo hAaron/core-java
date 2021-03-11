@@ -10,11 +10,11 @@ package com.aaron.design.prototype;
  */
 public interface Prototype {
 
-	/**
-	 * 定义一个clone接口
-	 * 
-	 * @return
-	 */
-	public Prototype cloneMethod();
+    /**
+     * 定义一个clone接口
+     * 
+     * @return
+     */
+    public Prototype cloneMethod();
 
 }

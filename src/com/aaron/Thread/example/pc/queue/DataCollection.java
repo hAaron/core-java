@@ -9,22 +9,22 @@ package com.aaron.Thread.example.pc.queue;
  * @package_name com.aaron.Thread.example.pc.queue
  */
 public class DataCollection {
-	private final int intData;
+    private final int intData;
 
-	public DataCollection(int d) {
-		intData = d;
-	}
+    public DataCollection(int d) {
+        intData = d;
+    }
 
-	public DataCollection(String d) {
-		intData = Integer.valueOf(d);
-	}
+    public DataCollection(String d) {
+        intData = Integer.valueOf(d);
+    }
 
-	public int getData() {
-		return intData;
-	}
+    public int getData() {
+        return intData;
+    }
 
-	@Override
-	public String toString() {
-		return "data:" + intData;
-	}
+    @Override
+    public String toString() {
+        return "data:" + intData;
+    }
 }

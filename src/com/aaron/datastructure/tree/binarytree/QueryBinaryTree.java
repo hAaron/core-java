@@ -16,45 +16,45 @@ package com.aaron.datastructure.tree.binarytree;
  */
 public class QueryBinaryTree {
 
-	/**
-	 * 前序遍历--递归方式
-	 * 
-	 * @param root
-	 */
-	public static void preOrder(BinaryTreeNode<String> root) {
+    /**
+     * 前序遍历--递归方式
+     * 
+     * @param root
+     */
+    public static void preOrder(BinaryTreeNode<String> root) {
 
-		if (root != null) {
-			System.out.print(root.getData() + " ");
-			preOrder(root.getLeft());
-			preOrder(root.getRight());
-		}
-	}
+        if (root != null) {
+            System.out.print(root.getData() + " ");
+            preOrder(root.getLeft());
+            preOrder(root.getRight());
+        }
+    }
 
-	/**
-	 * 中序遍历--递归方式
-	 * 
-	 * @param root
-	 */
-	public static void inOrder(BinaryTreeNode<String> root) {
+    /**
+     * 中序遍历--递归方式
+     * 
+     * @param root
+     */
+    public static void inOrder(BinaryTreeNode<String> root) {
 
-		if (root != null) {
-			inOrder(root.getLeft());
-			System.out.print(root.getData() + " ");
-			inOrder(root.getRight());
-		}
-	}
+        if (root != null) {
+            inOrder(root.getLeft());
+            System.out.print(root.getData() + " ");
+            inOrder(root.getRight());
+        }
+    }
 
-	/**
-	 * 后序遍历--递归方式
-	 * 
-	 * @param root
-	 */
-	public static void afterOrder(BinaryTreeNode<String> root) {
-		if (root != null) {
-			afterOrder(root.getLeft());
-			afterOrder(root.getRight());
-			System.out.print(root.getData() + " ");
-		}
-	}
+    /**
+     * 后序遍历--递归方式
+     * 
+     * @param root
+     */
+    public static void afterOrder(BinaryTreeNode<String> root) {
+        if (root != null) {
+            afterOrder(root.getLeft());
+            afterOrder(root.getRight());
+            System.out.print(root.getData() + " ");
+        }
+    }
 
 }

@@ -10,9 +10,9 @@ package com.aaron.design.proxy.staticp;
  */
 public class BuyReal implements TicketsSubject {
 
-	@Override
-	public void buy() {
-		System.out.println("####真实对象购买车票#####");
-	}
+    @Override
+    public void buy() {
+        System.out.println("####真实对象购买车票#####");
+    }
 
 }

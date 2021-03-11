@@ -8,9 +8,9 @@ package com.aaron.design.factory.common;
  * @package_type com.aaron.design.factory.common.ISender
  */
 public interface ISender {
-	/**
-	 * 发送
-	 * 
-	 */
-	public void send();
+    /**
+     * 发送
+     * 
+     */
+    public void send();
 }

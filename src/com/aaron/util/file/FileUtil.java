@@ -1,14 +1,6 @@
 package com.aaron.util.file;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -75,9 +67,8 @@ public class FileUtil {
         } else {
             if (path.isFile()) {
                 if (path.getName().toLowerCase().endsWith(".pdf") || path.getName().toLowerCase().endsWith(".doc")
-                        || path.getName().toLowerCase().endsWith(".chm")
-                        || path.getName().toLowerCase().endsWith(".html")
-                        || path.getName().toLowerCase().endsWith(".htm")) {// 文件格式
+                    || path.getName().toLowerCase().endsWith(".chm") || path.getName().toLowerCase().endsWith(".html")
+                    || path.getName().toLowerCase().endsWith(".htm")) {// 文件格式
                     System.out.println(path);
                     System.out.println(path.getName());
                 }
@@ -123,31 +114,33 @@ public class FileUtil {
         }
     }
 
-	/**
-	 * MultipartFile 转成 file文件
-	 * @param file
-	 * @return
-	 * @throws Exception
-	 */
-//    public static File multipartFileToFile(MultipartFile file) throws Exception {
-//        File toFile = null;
-//        if (file.equals("") || file.getSize() <= 0) {
-//            file = null;
-//        } else {
-//            InputStream ins = null;
-//            ins = file.getInputStream();
-//            toFile = new File(file.getOriginalFilename());
-//            inputStreamToFile(ins, toFile);
-//            ins.close();
-//        }
-//        return toFile;
-//    }
+    /**
+     * MultipartFile 转成 file文件
+     * 
+     * @param file
+     * @return
+     * @throws Exception
+     */
+    // public static File multipartFileToFile(MultipartFile file) throws Exception {
+    // File toFile = null;
+    // if (file.equals("") || file.getSize() <= 0) {
+    // file = null;
+    // } else {
+    // InputStream ins = null;
+    // ins = file.getInputStream();
+    // toFile = new File(file.getOriginalFilename());
+    // inputStreamToFile(ins, toFile);
+    // ins.close();
+    // }
+    // return toFile;
+    // }
 
-	/**
-	 * inpustream 转成 file
-	 * @param ins
-	 * @param file
-	 */
+    /**
+     * inpustream 转成 file
+     * 
+     * @param ins
+     * @param file
+     */
     public static void inputStreamToFile(InputStream ins, File file) {
         try {
             OutputStream os = new FileOutputStream(file);
@@ -175,44 +168,44 @@ public class FileUtil {
         }
     }
 
-//    public static FileItem createFileItem(File file, String fieldName) {
-//        FileItemFactory factory = new DiskFileItemFactory(16, null);
-//        FileItem item = factory.createItem(fieldName, "text/plain", true, file.getName());
-//        int bytesRead = 0;
-//        byte[] buffer = new byte[8192];
-//        try {
-//            FileInputStream fis = new FileInputStream(file);
-//            OutputStream os = item.getOutputStream();
-//            while ((bytesRead = fis.read(buffer, 0, 8192)) != -1) {
-//                os.write(buffer, 0, bytesRead);
-//            }
-//            os.close();
-//            fis.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return item;
-//    }
+    // public static FileItem createFileItem(File file, String fieldName) {
+    // FileItemFactory factory = new DiskFileItemFactory(16, null);
+    // FileItem item = factory.createItem(fieldName, "text/plain", true, file.getName());
+    // int bytesRead = 0;
+    // byte[] buffer = new byte[8192];
+    // try {
+    // FileInputStream fis = new FileInputStream(file);
+    // OutputStream os = item.getOutputStream();
+    // while ((bytesRead = fis.read(buffer, 0, 8192)) != -1) {
+    // os.write(buffer, 0, bytesRead);
+    // }
+    // os.close();
+    // fis.close();
+    // } catch (IOException e) {
+    // e.printStackTrace();
+    // }
+    // return item;
+    // }
 
-//	public static void main(String[] args) {
-//		MultipartFile file = null;
-//		MultipartFile thunfile = null;
-//		log.info("-------start-------------");
-//		System.out.println(file.getName());
-//		System.out.println(file.getOriginalFilename());
-//		File tempFile = null;
-//		try {
-//			tempFile = multipartFileToFile(thunfile);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		System.out.println(tempFile.getAbsolutePath());
-//		thunfile = new CommonsMultipartFile(createFileItem(tempFile, "file"));
-//		delteTempFile(tempFile);
-//		System.out.println(thunfile.getName());
-//		System.out.println(thunfile.getOriginalFilename());
-//
-//	}
+    // public static void main(String[] args) {
+    // MultipartFile file = null;
+    // MultipartFile thunfile = null;
+    // log.info("-------start-------------");
+    // System.out.println(file.getName());
+    // System.out.println(file.getOriginalFilename());
+    // File tempFile = null;
+    // try {
+    // tempFile = multipartFileToFile(thunfile);
+    // } catch (Exception e) {
+    // e.printStackTrace();
+    // }
+    // System.out.println(tempFile.getAbsolutePath());
+    // thunfile = new CommonsMultipartFile(createFileItem(tempFile, "file"));
+    // delteTempFile(tempFile);
+    // System.out.println(thunfile.getName());
+    // System.out.println(thunfile.getOriginalFilename());
+    //
+    // }
 
     public static void main(String[] args) {
         File source = new File("D:\\迅雷下载\\Java常用工具类\\file\\FileUtil.java");

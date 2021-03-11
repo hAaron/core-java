@@ -10,13 +10,13 @@ package com.aaron.design.factory.common;
  */
 public class Factory {
 
-	public ISender createSender(String type) {
-		if (type.equals("sms")) {
-			return new SmsSender();
-		} else if (type.equals("email")) {
-			return new MailSender();
-		} else {
-			return new SmsSender();
-		}
-	}
+    public ISender createSender(String type) {
+        if (type.equals("sms")) {
+            return new SmsSender();
+        } else if (type.equals("email")) {
+            return new MailSender();
+        } else {
+            return new SmsSender();
+        }
+    }
 }

@@ -9,13 +9,13 @@ package com.aaron.Thread.example.pc.awaits;
  * @package_name com.aaron.Thread.example.pc.awaits
  */
 public class DataCollection {
-	private int data;
+    private int data;
 
-	public int getData() {
-		return data;
-	}
+    public int getData() {
+        return data;
+    }
 
-	public void setData(int data) {
-		this.data = data;
-	}
+    public void setData(int data) {
+        this.data = data;
+    }
 }

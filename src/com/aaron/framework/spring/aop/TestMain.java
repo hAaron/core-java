@@ -19,16 +19,16 @@ package com.aaron.framework.spring.aop;
  * @package_type com.spring.aop.TestMain
  */
 public class TestMain {
-	public static void main(String[] args) {
-		// 模拟容器初始化
-		ApplicationContext applicationContext = new ClassPathXmlApplicationContext();
-		// 生成的代理对象 默认为该类名的小写
-		//UserService userService = (UserService) applicationContext.getBean("userService");
-		UserService userService = applicationContext.getBean("userService",UserService.class);
-		userService.deleteUserById("1234");
+    public static void main(String[] args) {
+        // 模拟容器初始化
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext();
+        // 生成的代理对象 默认为该类名的小写
+        // UserService userService = (UserService) applicationContext.getBean("userService");
+        UserService userService = applicationContext.getBean("userService", UserService.class);
+        userService.deleteUserById("1234");
 
-		System.out.println("=====分========割========线=====");
-		
-		userService.findUserById("1234");
-	}
+        System.out.println("=====分========割========线=====");
+
+        userService.findUserById("1234");
+    }
 }

@@ -9,17 +9,17 @@ package com.aaron.design.decorator;
  * @package_name com.aaron.design.decorator
  */
 public abstract class AbstractDecorator implements Component {
-	private Component component;
+    private Component component;
 
-	public AbstractDecorator(Component component) {
-		this.component = component;
-	}
+    public AbstractDecorator(Component component) {
+        this.component = component;
+    }
 
-	/**
-	 * 装饰器抽象类
-	 */
-	@Override
-	public void printString(String s) {
-		component.printString(s);
-	}
+    /**
+     * 装饰器抽象类
+     */
+    @Override
+    public void printString(String s) {
+        component.printString(s);
+    }
 }

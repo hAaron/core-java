@@ -1,7 +1,5 @@
 package com.aaron.util.email;
 
-import java.text.DecimalFormat;
-
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 
@@ -13,20 +11,19 @@ import javax.mail.PasswordAuthentication;
  * @package_name com.aaron.util.email
  */
 public class MailAuthenticator extends Authenticator {
-	String userName = null;
-	String password = null;
+    String userName = null;
+    String password = null;
 
-	public MailAuthenticator() {
-	}
+    public MailAuthenticator() {}
 
-	public MailAuthenticator(String userName, String password) {
-		this.userName = userName;
-		this.password = password;
-	}
+    public MailAuthenticator(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
 
-	@Override
-	protected PasswordAuthentication getPasswordAuthentication() {
-		return new PasswordAuthentication(userName, password);
-	}
+    @Override
+    protected PasswordAuthentication getPasswordAuthentication() {
+        return new PasswordAuthentication(userName, password);
+    }
 
 }

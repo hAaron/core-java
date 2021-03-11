@@ -9,11 +9,10 @@ package com.aaron.design.decorator;
  * @package_name com.aaron.design.decorator
  */
 public class ConcreteComponent implements Component {
-	public ConcreteComponent() {
-	}
+    public ConcreteComponent() {}
 
-	@Override
-	public void printString(String s) {
-		System.out.println("Input String is:" + s);
-	}
+    @Override
+    public void printString(String s) {
+        System.out.println("Input String is:" + s);
+    }
 }

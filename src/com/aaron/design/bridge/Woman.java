@@ -8,11 +8,11 @@ package com.aaron.design.bridge;
  * @version 1.0
  * @package_name com.aaron.design.bridge
  */
-public class Woman extends AbstractPeople{
-	@Override
-	void run() {
-		super.run();
-		System.out.print("女人开着-");  
-		road.run();
-	}
+public class Woman extends AbstractPeople {
+    @Override
+    void run() {
+        super.run();
+        System.out.print("女人开着-");
+        road.run();
+    }
 }

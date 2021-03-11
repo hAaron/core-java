@@ -15,28 +15,28 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  */
 public class HelloServer {
 
-	private static final int PORT = 7878;
+    private static final int PORT = 7878;
 
-	public static void main(String[] args) {
-		EventLoopGroup bossGroup = new NioEventLoopGroup();
-		EventLoopGroup workerGroup = new NioEventLoopGroup();
-		try {
+    public static void main(String[] args) {
+        EventLoopGroup bossGroup = new NioEventLoopGroup();
+        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        try {
 
-			ServerBootstrap serverBootstrap = new ServerBootstrap();
-			serverBootstrap.group(bossGroup, workerGroup);
-			serverBootstrap.channel(NioServerSocketChannel.class);
-			serverBootstrap.childHandler(new HelloServerInitializer());
-			// 服务器绑定端口监听
-			ChannelFuture f = serverBootstrap.bind(PORT).sync();
-			// 监听服务器关闭监听
-			f.channel().closeFuture().sync();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} finally {
-			bossGroup.shutdownGracefully();
-			workerGroup.shutdownGracefully();
-		}
+            ServerBootstrap serverBootstrap = new ServerBootstrap();
+            serverBootstrap.group(bossGroup, workerGroup);
+            serverBootstrap.channel(NioServerSocketChannel.class);
+            serverBootstrap.childHandler(new HelloServerInitializer());
+            // 服务器绑定端口监听
+            ChannelFuture f = serverBootstrap.bind(PORT).sync();
+            // 监听服务器关闭监听
+            f.channel().closeFuture().sync();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            bossGroup.shutdownGracefully();
+            workerGroup.shutdownGracefully();
+        }
 
-	}
+    }
 
 }

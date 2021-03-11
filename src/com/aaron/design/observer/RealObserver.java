@@ -9,28 +9,27 @@ package com.aaron.design.observer;
  * @package_type com.aaron.design.observer.RealObserver
  */
 public class RealObserver implements AbstractObserver {
-	String name;
-	String msg;
+    String name;
+    String msg;
 
-	public RealObserver() {
-	}
-	
-	public RealObserver(String name) {
-		super();
-		this.name = name;
-	}
+    public RealObserver() {}
 
-	public String getName() {
-		return name;
-	}
+    public RealObserver(String name) {
+        super();
+        this.name = name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	@Override
-	public void update(String msg) {
-		System.out.println(name + " 收到订阅号发的消息：" + msg);
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void update(String msg) {
+        System.out.println(name + " 收到订阅号发的消息：" + msg);
+    }
 
 }

@@ -13,12 +13,12 @@ import com.aaron.design.factory.common.SmsSender;
  */
 public class SendFactory {
 
-	public ISender produceSMS() {
-		return new SmsSender();
-	}
+    public ISender produceSMS() {
+        return new SmsSender();
+    }
 
-	public ISender produceEmail() {
-		return new MailSender();
-	}
+    public ISender produceEmail() {
+        return new MailSender();
+    }
 
 }

@@ -9,7 +9,7 @@ public class OperateSqlServer {
     private static Connection conn;
 
     public static void main(String[] args) {
-        //conn = DBUtil.getConnection();
+        // conn = DBUtil.getConnection();
         GetInsert();
         GetSelect();
 
@@ -25,10 +25,11 @@ public class OperateSqlServer {
      */
     public static void GetInsert() {
         if (conn != null) {
-            //INSERT
+            // INSERT
             System.out.println("-----------INSERT------------");
-            int x = 1 + (int) (Math.random() * 5000);
-            String insert_str = "INSERT INTO tb_User (UserName,UserPwd,UserId) VALUES ('name_" + x + "','pwd_" + x + "',NEWID())";
+            int x = 1 + (int)(Math.random() * 5000);
+            String insert_str =
+                "INSERT INTO tb_User (UserName,UserPwd,UserId) VALUES ('name_" + x + "','pwd_" + x + "',NEWID())";
             try {
                 Statement insertstatement = conn.createStatement();
                 int result = insertstatement.executeUpdate(insert_str);
@@ -54,7 +55,7 @@ public class OperateSqlServer {
      */
     public static void GetSelect() {
         if (conn != null) {
-            //SELECT
+            // SELECT
             System.out.println("-----------SELECT------------");
             String select_str = " SELECT * FROM tb_User ";
             try {
@@ -83,9 +84,10 @@ public class OperateSqlServer {
      */
     public static void GetUpdate() {
         if (conn != null) {
-            //UPDATE
+            // UPDATE
             System.out.println("-----------INSERT------------");
-            String update_str = "UPDATE tb_User SET UserPwd=UserPwd+'xxxxxxxx' WHERE UserId='fa562573-218a-4205-b67d-ebdfac3f8329'";
+            String update_str =
+                "UPDATE tb_User SET UserPwd=UserPwd+'xxxxxxxx' WHERE UserId='fa562573-218a-4205-b67d-ebdfac3f8329'";
             try {
                 Statement updatestatement = conn.createStatement();
                 int result = updatestatement.executeUpdate(update_str);
@@ -111,7 +113,7 @@ public class OperateSqlServer {
      */
     public static void GetDelete() {
         if (conn != null) {
-            //DELETE
+            // DELETE
             System.out.println("-----------DELETE------------");
             String delete_str = "DELETE tb_User WHERE UserId!='fa562573-218a-4205-b67d-ebdfac3f8329'";
             try {

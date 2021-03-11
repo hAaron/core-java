@@ -11,37 +11,37 @@ import java.util.Vector;
  * @package_name com.aaron.design.iterator
  */
 public class VectorIterator implements Iterator {
-	private Vector data = new Vector();
-	private int cursor = 0;
+    private Vector data = new Vector();
+    private int cursor = 0;
 
-	public VectorIterator(Vector _data) {
-		data = _data;
-	}
+    public VectorIterator(Vector _data) {
+        data = _data;
+    }
 
-	@Override
-	public void first() {
-		// cursor = 0;
-		cursor = (data.size() - 1);
-	}
+    @Override
+    public void first() {
+        // cursor = 0;
+        cursor = (data.size() - 1);
+    }
 
-	@Override
-	public void next() {
-		// cursor++;
-		cursor--;
-	}
+    @Override
+    public void next() {
+        // cursor++;
+        cursor--;
+    }
 
-	@Override
-	public boolean isDone() {
-		// return (cursor >= data.size());
-		return (cursor < 0);
-	}
+    @Override
+    public boolean isDone() {
+        // return (cursor >= data.size());
+        return (cursor < 0);
+    }
 
-	@Override
-	public void currentItem() {
-		if (isDone()) {
-			System.out.println("Reach the end of the vector");
-		} else {
-			System.out.println("Number " + cursor + ": " + data.get(cursor));
-		}
-	}
+    @Override
+    public void currentItem() {
+        if (isDone()) {
+            System.out.println("Reach the end of the vector");
+        } else {
+            System.out.println("Number " + cursor + ": " + data.get(cursor));
+        }
+    }
 }

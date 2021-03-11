@@ -9,10 +9,10 @@ package com.aaron.design.composite.security;
  * @package_name com.aaron.design.composite.security
  */
 public interface Component {
-	/**
-	 * 输出组建自身的名称
-	 * 
-	 * @param preStr
-	 */
-	public void printStruct(String preStr);
+    /**
+     * 输出组建自身的名称
+     * 
+     * @param preStr
+     */
+    public void printStruct(String preStr);
 }

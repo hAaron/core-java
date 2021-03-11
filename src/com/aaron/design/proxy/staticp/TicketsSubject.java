@@ -10,6 +10,6 @@ package com.aaron.design.proxy.staticp;
  */
 public interface TicketsSubject {
 
-	public abstract void buy();
+    public abstract void buy();
 
 }

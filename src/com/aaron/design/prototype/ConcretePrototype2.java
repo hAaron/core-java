@@ -9,33 +9,33 @@ package com.aaron.design.prototype;
  * @package_type com.aaron.design.prototype.ConcretePrototype2
  */
 public class ConcretePrototype2 implements Prototype, Cloneable {
-	/**
-	 * 对象属性
-	 */
-	private String name;
+    /**
+     * 对象属性
+     */
+    private String name;
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Override
-	public Prototype cloneMethod() {
-		Object object = null;
-		try {
-			object = super.clone();
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
-		return (Prototype) object;
-	}
+    @Override
+    public Prototype cloneMethod() {
+        Object object = null;
+        try {
+            object = super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return (Prototype)object;
+    }
 
-	@Override
-	public String toString() {
-		return "ConcretePrototype2 [name=" + name + "]";
-	}
+    @Override
+    public String toString() {
+        return "ConcretePrototype2 [name=" + name + "]";
+    }
 
 }

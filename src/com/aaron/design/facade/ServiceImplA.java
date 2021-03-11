@@ -1,7 +1,7 @@
 package com.aaron.design.facade;
 
 interface ServiceA {
-	void methodA();
+    void methodA();
 }
 
 /**
@@ -14,9 +14,9 @@ interface ServiceA {
  */
 public class ServiceImplA implements ServiceA {
 
-	@Override
-	public void methodA() {
-		System.out.println("####子系统A方法 methodA is start#####");
-	}
+    @Override
+    public void methodA() {
+        System.out.println("####子系统A方法 methodA is start#####");
+    }
 
 }

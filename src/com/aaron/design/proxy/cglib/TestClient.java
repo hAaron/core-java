@@ -12,10 +12,10 @@ package com.aaron.design.proxy.cglib;
  */
 public class TestClient {
 
-	public static void main(String[] args) {
-		UserDaoImpl target = new UserDaoImpl();
-		UserDaoImpl proxy = (UserDaoImpl) new CglibProxy(target).getProxyInstance();
-		proxy.addUser();
-	}
+    public static void main(String[] args) {
+        UserDaoImpl target = new UserDaoImpl();
+        UserDaoImpl proxy = (UserDaoImpl)new CglibProxy(target).getProxyInstance();
+        proxy.addUser();
+    }
 
 }

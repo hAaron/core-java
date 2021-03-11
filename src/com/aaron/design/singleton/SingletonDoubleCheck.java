@@ -9,44 +9,44 @@ package com.aaron.design.singleton;
  * @package_name com.aaron.design.singleton
  */
 public class SingletonDoubleCheck {
-	private static SingletonDoubleCheck instance = null;
-	private static volatile SingletonDoubleCheck instanceVolatile = null;
+    private static SingletonDoubleCheck instance = null;
+    private static volatile SingletonDoubleCheck instanceVolatile = null;
 
-	private SingletonDoubleCheck() {
-		System.out.println("懒汉式--双检索机制####构造方法私有化，提供公共静态方法被外部访问");
-	}
+    private SingletonDoubleCheck() {
+        System.out.println("懒汉式--双检索机制####构造方法私有化，提供公共静态方法被外部访问");
+    }
 
-	/**
-	 * 双检索机制，指令重排导致单例模式失效
-	 * 
-	 * @return
-	 */
-	public static SingletonDoubleCheck getInstance() {
-		if (instance == null) {
-			synchronized (SingletonDoubleCheck.class) {
-				SingletonDoubleCheck temp = instance;
-				if (temp == null) {
-					temp = new SingletonDoubleCheck();// 非原子操作
-					instance = temp;
-				}
-			}
-		}
-		return instance;
-	}
+    /**
+     * 双检索机制，指令重排导致单例模式失效
+     * 
+     * @return
+     */
+    public static SingletonDoubleCheck getInstance() {
+        if (instance == null) {
+            synchronized (SingletonDoubleCheck.class) {
+                SingletonDoubleCheck temp = instance;
+                if (temp == null) {
+                    temp = new SingletonDoubleCheck();// 非原子操作
+                    instance = temp;
+                }
+            }
+        }
+        return instance;
+    }
 
-	/**
-	 * 
-	 * @return
-	 */
-	public static SingletonDoubleCheck getInstanceByVolatile() {
-		if (instanceVolatile == null) {
-			synchronized (SingletonDoubleCheck.class) {
-				if (instanceVolatile == null) {
-					instanceVolatile = new SingletonDoubleCheck();
-				}
-			}
-		}
-		return instanceVolatile;
-	}
+    /**
+     * 
+     * @return
+     */
+    public static SingletonDoubleCheck getInstanceByVolatile() {
+        if (instanceVolatile == null) {
+            synchronized (SingletonDoubleCheck.class) {
+                if (instanceVolatile == null) {
+                    instanceVolatile = new SingletonDoubleCheck();
+                }
+            }
+        }
+        return instanceVolatile;
+    }
 
 }

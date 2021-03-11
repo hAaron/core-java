@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
-	<bean id="user1" class="com.aaron.spring.ioc.User" scope="singleton">
-		<property name="id" value="1"></property>
-		<property name="name" value="张三"></property>
-		<property name="password" value="12456"></property>
-		<property name="age" value="34"></property>
-	</bean>
-	<bean id="user2" class="com.aaron.spring.ioc.User" scope="prototype">
-		<property name="id" value="2"></property>
-		<property name="name" value="李四"></property>
-		<property name="password" value="654321"></property>
-		<property name="age" value="24"></property>
-	</bean>
+    <bean id="user1" class="com.aaron.spring.ioc.User" scope="singleton">
+        <property name="id" value="1"></property>
+        <property name="name" value="张三"></property>
+        <property name="password" value="12456"></property>
+        <property name="age" value="34"></property>
+    </bean>
+    <bean id="user2" class="com.aaron.spring.ioc.User" scope="prototype">
+        <property name="id" value="2"></property>
+        <property name="name" value="李四"></property>
+        <property name="password" value="654321"></property>
+        <property name="age" value="24"></property>
+    </bean>
 </beans>

@@ -9,9 +9,9 @@ package com.aaron.design.iterator.part2;
  * @package_name com.aaron.test
  */
 interface Aggregate {
-	public void add(Object obj);
+    public void add(Object obj);
 
-	public void remove(Object obj);
+    public void remove(Object obj);
 
-	public Iterator iterator();
+    public Iterator iterator();
 }

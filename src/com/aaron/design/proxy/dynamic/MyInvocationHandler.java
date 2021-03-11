@@ -14,28 +14,28 @@ import java.lang.reflect.Proxy;
  */
 public class MyInvocationHandler implements InvocationHandler {
 
-	//定义目标对象
-	private Object target;
+    // 定义目标对象
+    private Object target;
 
-	public MyInvocationHandler(Object target) {
-		super();
-		this.target = target;
-	}
+    public MyInvocationHandler(Object target) {
+        super();
+        this.target = target;
+    }
 
-	@Override
-	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-		Object result = method.invoke(target, args);
-		return result;
-	}
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        Object result = method.invoke(target, args);
+        return result;
+    }
 
-	/**
-	 * 获取代理对象
-	 * 
-	 * @return
-	 */
-	public Object getProxy() {
-		return Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), target.getClass().getInterfaces(),
-				this);
-	}
+    /**
+     * 获取代理对象
+     * 
+     * @return
+     */
+    public Object getProxy() {
+        return Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), target.getClass().getInterfaces(),
+            this);
+    }
 
 }

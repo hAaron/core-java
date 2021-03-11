@@ -10,16 +10,16 @@ package com.aaron.design.adapter;
  * @package_type com.aaron.design.adapter.AdapterGermanyElectricityObject
  */
 public class AdapterGermanyElectricityObject implements IGermanyElectricity {
-	IChinaElectricity chinaElectricity;
+    IChinaElectricity chinaElectricity;
 
-	public AdapterGermanyElectricityObject(IChinaElectricity chinaElectricity) {
-		this.chinaElectricity = chinaElectricity;
-	}
+    public AdapterGermanyElectricityObject(IChinaElectricity chinaElectricity) {
+        this.chinaElectricity = chinaElectricity;
+    }
 
-	@Override
-	public void use110v() {
-		System.out.println("对象适配器：此时在德国的电压标准为110v，需要一个适配器来适应当地的电压：");
-		chinaElectricity.use220v();
-	}
+    @Override
+    public void use110v() {
+        System.out.println("对象适配器：此时在德国的电压标准为110v，需要一个适配器来适应当地的电压：");
+        chinaElectricity.use220v();
+    }
 
 }

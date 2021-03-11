@@ -12,34 +12,34 @@ import java.util.List;
  * @package_type com.aaron.design.observer.WeChatServer
  */
 public class WeChatServer implements Observeable {
-	List<AbstractObserver> observers;// 观察者角色集合
-	String msg;
+    List<AbstractObserver> observers;// 观察者角色集合
+    String msg;
 
-	public WeChatServer() {
-		observers = new ArrayList<AbstractObserver>();
-	}
+    public WeChatServer() {
+        observers = new ArrayList<AbstractObserver>();
+    }
 
-	@Override
-	public void registerObserve(AbstractObserver observer) {
-		observers.add(observer);
-	}
+    @Override
+    public void registerObserve(AbstractObserver observer) {
+        observers.add(observer);
+    }
 
-	@Override
-	public void removeObserve(AbstractObserver observer) {
-		observers.remove(observer);
-	}
+    @Override
+    public void removeObserve(AbstractObserver observer) {
+        observers.remove(observer);
+    }
 
-	@Override
-	public void noticefyObserve() {
-		for (AbstractObserver abstractObserver : observers) {
-			abstractObserver.update(msg);
-		}
-	}
+    @Override
+    public void noticefyObserve() {
+        for (AbstractObserver abstractObserver : observers) {
+            abstractObserver.update(msg);
+        }
+    }
 
-	public void sendMsgByServer(String msg) {
-		this.msg = msg;
-		System.out.println("微信公众号发送消息：" + msg);
-		noticefyObserve();
-	}
+    public void sendMsgByServer(String msg) {
+        this.msg = msg;
+        System.out.println("微信公众号发送消息：" + msg);
+        noticefyObserve();
+    }
 
 }

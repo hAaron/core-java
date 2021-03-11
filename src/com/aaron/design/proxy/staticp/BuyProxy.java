@@ -10,20 +10,20 @@ package com.aaron.design.proxy.staticp;
  */
 public class BuyProxy implements TicketsSubject {
 
-	private TicketsSubject ticketsSubject;
+    private TicketsSubject ticketsSubject;
 
-	public BuyProxy(TicketsSubject ticketsSubject) {
-		this.ticketsSubject = ticketsSubject;
-	}
+    public BuyProxy(TicketsSubject ticketsSubject) {
+        this.ticketsSubject = ticketsSubject;
+    }
 
-	@Override
-	public void buy() {
-		getAuthority();
-		System.out.println("####代理对象买票####");
-		ticketsSubject.buy();
-	}
+    @Override
+    public void buy() {
+        getAuthority();
+        System.out.println("####代理对象买票####");
+        ticketsSubject.buy();
+    }
 
-	public void getAuthority() {
-		System.out.println("####获取权限####");
-	}
+    public void getAuthority() {
+        System.out.println("####获取权限####");
+    }
 }

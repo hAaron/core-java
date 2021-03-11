@@ -1,7 +1,5 @@
 package com.aaron.design.interpreter;
 
-import java.util.*;
-
 /**
  * 一个Constant对象代表一个布尔常量
  * 
@@ -11,35 +9,35 @@ import java.util.*;
  * @package_name com.aaron.design.interpreter
  */
 public class Constant extends Expression {
-	private boolean value;
+    private boolean value;
 
-	public Constant(boolean value) {
-		this.value = value;
-	}
+    public Constant(boolean value) {
+        this.value = value;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
+    @Override
+    public boolean equals(Object obj) {
 
-		if (obj != null && obj instanceof Constant) {
-			return this.value == ((Constant) obj).value;
-		}
-		return false;
-	}
+        if (obj != null && obj instanceof Constant) {
+            return this.value == ((Constant)obj).value;
+        }
+        return false;
+    }
 
-	@Override
-	public int hashCode() {
-		return this.toString().hashCode();
-	}
+    @Override
+    public int hashCode() {
+        return this.toString().hashCode();
+    }
 
-	@Override
-	public boolean interpret(Context ctx) {
+    @Override
+    public boolean interpret(Context ctx) {
 
-		return value;
-	}
+        return value;
+    }
 
-	@Override
-	public String toString() {
-		return new Boolean(value).toString();
-	}
+    @Override
+    public String toString() {
+        return new Boolean(value).toString();
+    }
 
 }

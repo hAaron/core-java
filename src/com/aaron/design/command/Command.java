@@ -9,8 +9,8 @@ package com.aaron.design.command;
  * @package_name com.aaron.design.command
  */
 public interface Command {
-	/**
-	 * 执行方法
-	 */
-	public void execute();
+    /**
+     * 执行方法
+     */
+    public void execute();
 }

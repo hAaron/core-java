@@ -2,7 +2,6 @@ package com.aaron.util.jdbc;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -16,129 +15,129 @@ import java.sql.ResultSet;
  *
  */
 public class JdbcProcedure {
-	private static Connection conn = null;
-	private static PreparedStatement preparedStatement = null;
-	private static ResultSet resultSet = null;
+    private static Connection conn = null;
+    private static PreparedStatement preparedStatement = null;
+    private static ResultSet resultSet = null;
 
-	public static void main(String[] args) {
-		getInProcedure();
-		inProcedure();
-		outProcedure();
-		inoutProcedure();
-	}
+    public static void main(String[] args) {
+        getInProcedure();
+        inProcedure();
+        outProcedure();
+        inoutProcedure();
+    }
 
-	private static void inoutProcedure() {
-		try {
-			conn = DBConfig.getConnection();
-			conn.setAutoCommit(true);
-			// call inout_demo('aa',@x);
-			String sql = "call inout_demo(?,?);";
-			CallableStatement statement = conn.prepareCall(sql);
-			statement.setString(1, "'aa'");
-			statement.registerOutParameter(2, java.sql.Types.INTEGER);
-			statement.execute();
-			int i = statement.getInt(2);
-			System.out.println(i);
-		} catch (Exception e) {
-			System.out.println("数据库连接失败！");
-			e.printStackTrace();
-		} finally {
-			try {
-				DBConfig.closeConnection(conn, preparedStatement, resultSet);
-				System.out.println("关闭数据库连接");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
+    private static void inoutProcedure() {
+        try {
+            conn = DBConfig.getConnection();
+            conn.setAutoCommit(true);
+            // call inout_demo('aa',@x);
+            String sql = "call inout_demo(?,?);";
+            CallableStatement statement = conn.prepareCall(sql);
+            statement.setString(1, "'aa'");
+            statement.registerOutParameter(2, java.sql.Types.INTEGER);
+            statement.execute();
+            int i = statement.getInt(2);
+            System.out.println(i);
+        } catch (Exception e) {
+            System.out.println("数据库连接失败！");
+            e.printStackTrace();
+        } finally {
+            try {
+                DBConfig.closeConnection(conn, preparedStatement, resultSet);
+                System.out.println("关闭数据库连接");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-	private static void outProcedure() {
-		try {
-			conn = DBConfig.getConnection();
-			conn.setAutoCommit(true);
+    private static void outProcedure() {
+        try {
+            conn = DBConfig.getConnection();
+            conn.setAutoCommit(true);
 
-			// call out_demo('test',@y);
-			String sql = "call out_demo(?,?)";
-			CallableStatement statement = conn.prepareCall(sql);
-			statement.setString(1, "test");
-			statement.registerOutParameter(2, java.sql.Types.INTEGER);
-			statement.execute();
-			System.out.println(statement.getInt(2));
-			resultSet = statement.executeQuery();
-			while (resultSet.next()) {
-				System.out.println(resultSet.getInt(1));
-			}
-		} catch (Exception e) {
-			System.out.println("数据库连接失败！");
-			e.printStackTrace();
-		} finally {
-			try {
-				DBConfig.closeConnection(conn, preparedStatement, resultSet);
-				System.out.println("关闭数据库连接");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
+            // call out_demo('test',@y);
+            String sql = "call out_demo(?,?)";
+            CallableStatement statement = conn.prepareCall(sql);
+            statement.setString(1, "test");
+            statement.registerOutParameter(2, java.sql.Types.INTEGER);
+            statement.execute();
+            System.out.println(statement.getInt(2));
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                System.out.println(resultSet.getInt(1));
+            }
+        } catch (Exception e) {
+            System.out.println("数据库连接失败！");
+            e.printStackTrace();
+        } finally {
+            try {
+                DBConfig.closeConnection(conn, preparedStatement, resultSet);
+                System.out.println("关闭数据库连接");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-	private static void inProcedure() {
-		try {
-			conn = DBConfig.getConnection();
-			System.out.println("数据库连接成功！");
-			String sql = "{call in_demo(?,?)}";
-			CallableStatement statement = conn.prepareCall(sql);
-			statement.setString(1, "xx");
-			statement.setInt(2, 2);
-			resultSet = statement.executeQuery();
-			while (resultSet.next()) {
-				System.out.println(resultSet.getInt(1) + "...." + resultSet.getString(2) + "...."
-						+ resultSet.getString(3) + "...." + resultSet.getBlob(4));
-			}
-		} catch (Exception e) {
-			System.out.println("数据库连接失败！");
-			e.printStackTrace();
-		} finally {
-			try {
-				DBConfig.closeConnection(conn, preparedStatement, resultSet);
-				System.out.println("关闭数据库连接");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
+    private static void inProcedure() {
+        try {
+            conn = DBConfig.getConnection();
+            System.out.println("数据库连接成功！");
+            String sql = "{call in_demo(?,?)}";
+            CallableStatement statement = conn.prepareCall(sql);
+            statement.setString(1, "xx");
+            statement.setInt(2, 2);
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                System.out.println(resultSet.getInt(1) + "...." + resultSet.getString(2) + "...."
+                    + resultSet.getString(3) + "...." + resultSet.getBlob(4));
+            }
+        } catch (Exception e) {
+            System.out.println("数据库连接失败！");
+            e.printStackTrace();
+        } finally {
+            try {
+                DBConfig.closeConnection(conn, preparedStatement, resultSet);
+                System.out.println("关闭数据库连接");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-	/**
-	 * 
-	 */
-	private static void getInProcedure() {
-		Connection conn = null;
-		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
-		try {
-			conn = DBConfig.getConnection();
-			System.out.println("数据库连接成功！");
+    /**
+     * 
+     */
+    private static void getInProcedure() {
+        Connection conn = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            conn = DBConfig.getConnection();
+            System.out.println("数据库连接成功！");
 
-			String sql = "{call sp_name(?)}";
-			CallableStatement statement = conn.prepareCall(sql);
-			statement.setInt(1, 1);
-			resultSet = statement.executeQuery();
-			while (resultSet.next()) {
-				System.out.println(resultSet.getInt(1) + "...." + resultSet.getString(2) + "...."
-						+ resultSet.getString(3) + "...." + resultSet.getBlob(4));
-			}
+            String sql = "{call sp_name(?)}";
+            CallableStatement statement = conn.prepareCall(sql);
+            statement.setInt(1, 1);
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                System.out.println(resultSet.getInt(1) + "...." + resultSet.getString(2) + "...."
+                    + resultSet.getString(3) + "...." + resultSet.getBlob(4));
+            }
 
-		} catch (Exception e) {
-			System.out.println("数据库连接失败！");
-			e.printStackTrace();
-		} finally {
-			try {
-				DBConfig.closeConnection(conn, preparedStatement, resultSet);
-				System.out.println("关闭数据库连接");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
+        } catch (Exception e) {
+            System.out.println("数据库连接失败！");
+            e.printStackTrace();
+        } finally {
+            try {
+                DBConfig.closeConnection(conn, preparedStatement, resultSet);
+                System.out.println("关闭数据库连接");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
 //////////////////////////////////////////////////////////////////////////////
 // 存储过程
