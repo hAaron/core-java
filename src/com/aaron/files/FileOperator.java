@@ -348,7 +348,7 @@ public class FileOperator {
     public static void dataOutputStreamWrite() {
         String fileName = FILE_PATH + File.separator + "myfile1.txt";
         File file = new File(fileName);
-        char[] ch = {'A', 'B', 'C', '厂'};
+        char[] ch = {'A', 'B', 'C', 'D'};
         DataOutputStream dataOutputStream = null;
         try {
             dataOutputStream = new DataOutputStream(new FileOutputStream(file, true));
